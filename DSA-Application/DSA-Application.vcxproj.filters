@@ -18,5 +18,19 @@
     <ClCompile Include="DSA-Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\Week5 - Whitespace\Week5PracticalAns\QueueSimulation\Queue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Week5 - Whitespace\Week5PracticalAns\QueueSimulation\Customer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Week5 - Whitespace\Week5PracticalAns\QueueSimulation\Queue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Week5 - Whitespace\Week5PracticalAns\QueueSimulation\Customer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

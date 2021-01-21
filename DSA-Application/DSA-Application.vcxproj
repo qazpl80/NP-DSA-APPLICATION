@@ -139,7 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\Week5 - Whitespace\Week5PracticalAns\QueueSimulation\Customer.cpp" />
+    <ClCompile Include="..\..\..\Week5 - Whitespace\Week5PracticalAns\QueueSimulation\Queue.cpp" />
     <ClCompile Include="DSA-Application.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Week5 - Whitespace\Week5PracticalAns\QueueSimulation\Customer.h" />
+    <ClInclude Include="..\..\..\Week5 - Whitespace\Week5PracticalAns\QueueSimulation\Queue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
