@@ -6,6 +6,7 @@ Queue::Queue()
 {
 	frontNode = NULL;
 	backNode = NULL;
+	number = 0;
 }
 
 Queue::~Queue() { }
@@ -16,19 +17,20 @@ bool Queue::enqueue(const ItemType item)
 	Node* newNode = new Node;
 	newNode->item = item;
 	newNode->next = NULL;
-
+	 
 	// insert the new node
-	if (isEmpty())	// enqueue at the front
+	if (isEmpty())					// enqueue at the front
 	{
 		frontNode = newNode;
 		backNode = newNode;
 	}
-	else			// enqueue at the back
+	else							// enqueue at the back
 	{
 		backNode->next = newNode;
-		backNode = newNode;  // new node is at back
+		backNode = newNode;			// new node is at back
 	}
 
+	number++;						// number count plus 1 when enqueue
 	return true;
 }
 
@@ -42,6 +44,7 @@ bool Queue::dequeue()
 		{
 			frontNode = NULL;
 			backNode = NULL;
+			number--;				// number count minus 1 when dequeue
 		}
 		else
 			frontNode = frontNode->next;
@@ -58,10 +61,10 @@ bool Queue::dequeue()
 bool Queue::dequeue(ItemType& item)
 {
 	bool success = !isEmpty();
-	if (success)				// queue is not empty
+	if (success)					// queue is not empty
 	{
-		item = frontNode->item; // retrieve front item
-		dequeue();              // delete front
+		item = frontNode->item;		// retrieve front item
+		dequeue();					// delete front
 	}
 
 	return success;
@@ -70,7 +73,7 @@ bool Queue::dequeue(ItemType& item)
 void Queue::getFront(ItemType& item)
 {
 	bool success = !isEmpty();
-	if (success) // queue is not empty -> retrieve item at the front
+	if (success)					// queue is not empty -> retrieve item at the front
 		item = frontNode->item;
 }
 
@@ -90,6 +93,11 @@ int Queue::getLength()
 
 bool Queue::isEmpty() { return frontNode == NULL; }
 
+void Queue::resetProgram() 
+{
+	// Clear all exisiting queue and reset number count
 
+	number = 0;
+}
 
 

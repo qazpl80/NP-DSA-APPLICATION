@@ -17,6 +17,7 @@ private:
 
 	Node* frontNode;		// to point to the front node
 	Node* backNode;			// to point to the back node
+	int number;
 
 public:
 	Queue();
@@ -41,6 +42,6 @@ public:
 	// display the items in the queue
 	// void print();
 
-	
+	void resetProgram();
 };
 
