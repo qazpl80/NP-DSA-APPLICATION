@@ -90,35 +90,6 @@ int Queue::getLength()
 
 bool Queue::isEmpty() { return frontNode == NULL; }
 
-ItemType Queue::secondLargest()
-{
-	Node* temp = frontNode - 1;
-	int count = 0;
-	int largest;
-	Node* tempc = frontNode;
-	while (temp != backNode)
-	{
-		Node* temp = frontNode - 1;
-		temp = temp->next;
-		if (frontNode->item >= tempc->item)
-		{
-			largest = frontNode->item;
-			tempc = tempc->next;
-		}
-		else if (temp->item >= frontNode->item)
-		{
-			largest = tempc->item;
-		}
-	}
-	temp + 1;
-	if (backNode->item > temp->item)
-	{
-		largest = tempc->item;
-	}
-	else if (temp->item > backNode->item)
-	{
-		largest = backNode->item;
-	}
-}
+
 
 

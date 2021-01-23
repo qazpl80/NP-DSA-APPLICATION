@@ -1,10 +1,10 @@
 // Queue.h - Specification of Queue ADT (Pointer-based)
 #pragma once
 #include <iostream>   
-#include "Customer.h"
+#include "Patients.h"
 using namespace std;
 
-typedef Customer ItemType;
+typedef Patients ItemType;
 
 class Queue
 {
@@ -41,6 +41,6 @@ public:
 	// display the items in the queue
 	// void print();
 
-	ItemType secondLargest();
+	
 };
 
