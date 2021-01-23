@@ -139,11 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BinarySearch.cpp" />
     <ClCompile Include="Patients.cpp" />
     <ClCompile Include="DSA-Application.cpp" />
     <ClCompile Include="Queue.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BinarySearch.h" />
     <ClInclude Include="Patients.h" />
     <ClInclude Include="Queue.h" />
   </ItemGroup>
