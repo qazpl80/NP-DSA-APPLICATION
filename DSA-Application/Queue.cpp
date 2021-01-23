@@ -93,10 +93,11 @@ int Queue::getLength()
 
 bool Queue::isEmpty() { return frontNode == NULL; }
 
-void Queue::resetProgram() 
+void Queue::resetProgram() //testing
 {
 	// Clear all exisiting queue and reset number count
-
+	frontNode == NULL;
+	backNode == NULL;
 	number = 0;
 }
 
