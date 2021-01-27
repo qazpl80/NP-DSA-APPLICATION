@@ -62,5 +62,6 @@ public:
     int getLength();
 
     void print();
-    void search(string& IC);
+
+    void search(string IC);
 };

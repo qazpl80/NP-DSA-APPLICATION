@@ -109,23 +109,25 @@ void MedicalRecordList::print()
     for (int i = 0; i < size; i++)
         cout << "Name: "<< get(i).getName() << "\nIC: " << get(i).getIC() << "\nMedical Records: " << get(i).getMedicalRecord()<<"\n" << endl;
 }
-void MedicalRecordList::search(string& IC)
+
+
+void MedicalRecordList::search(string IC)   // Search Patient using Patient's ID
 {
-    // Medical Record List Initialize into the method
-    MedicalRecordList MRL;
-    int i = 0;
-    while (i > MRL.getLength())							// Recursive Sequential Search
+    for (int i = 0; i < size; i++)	
     {
-        ItemType p = MRL.getpatient(IC);								// Assign Patient to variable p using Patient's IC 
-        bool success = IC == p.getIC();
-        if (success)											// If IC input matches Patient p's IC
+        ItemType item = get(i);             // Assign item as Patient and retrieve patient from list
+        bool success = item.getIC() == IC;  // Success if Patient IC matched with provided IC
+        if (success)
         {
-            cout << "Patient of IC: " << p.getMedicalRecord();								// return Patient's Medical Record
+            cout << "Patient of IC: " << item.getMedicalRecord();	// Return Patient's Medical Record
+            break;                                                  // End Loop
+        }
+        else if ((item.getIC() != IC) && size - 1 == i)
+        {    
+            cout << "No Medical Record Found";                      //If last item and IC not correct, print No Medical Record Found
+            break;
         }
         else
-            cout << "No existing Patient or Medical Record \n";			// No Patient or Medical Record Exist
-        i++;
+            continue;
     }
-
-
 }
