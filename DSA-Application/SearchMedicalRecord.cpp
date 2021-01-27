@@ -3,8 +3,6 @@
 #include <string>	 	// for string class
 using namespace std;  	// for std C++ definitions
 
-//static int comparisons = 0;	// static global variable to keep track of number of comparisons
-
 string search(char& IC)
 {
 	MedicalRecordList MRL;												// Medical Record List Initialize into the method
@@ -19,5 +17,3 @@ string search(char& IC)
 			cout << "No existing Patient or Medical Record \n";			// No Patient or Medical Record Exist
 	}
 }
-
-
