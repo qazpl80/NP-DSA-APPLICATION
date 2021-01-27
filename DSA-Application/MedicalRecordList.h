@@ -47,7 +47,7 @@ public:
     ItemType get(int index);
 
     // get an IC at a specified position of the list (retrieve)
-    ItemType getpatient(char IC);
+    ItemType getpatient(string &IC);
 
     // check if the list is empty
     // pre : none
@@ -62,4 +62,6 @@ public:
     int getLength();
 
     void print();
+
+    void search(string IC);
 };
