@@ -66,7 +66,7 @@ ItemType MedicalRecordList::get(int index)
 }
 
 // get an Person using IC from the list (retrieve)
-ItemType MedicalRecordList::getpatient(char IC)
+ItemType MedicalRecordList::getpatient(string &IC)
 {
     ItemType p;
     bool success = (IC == p.getIC());
@@ -107,5 +107,25 @@ void MedicalRecordList::replace(int index, ItemType item)
 void MedicalRecordList::print()
 {
     for (int i = 0; i < size; i++)
-        cout << get(i).getName() << " " << get(i).getIC() << " " << get(i).getMedicalRecord() << endl;
+        cout << "Name: "<< get(i).getName() << "\nIC: " << get(i).getIC() << "\nMedical Records: " << get(i).getMedicalRecord()<<"\n" << endl;
+}
+void MedicalRecordList::search(string& IC)
+{
+    // Medical Record List Initialize into the method
+    MedicalRecordList MRL;
+    int i = 0;
+    while (i > MRL.getLength())							// Recursive Sequential Search
+    {
+        ItemType p = MRL.getpatient(IC);								// Assign Patient to variable p using Patient's IC 
+        bool success = IC == p.getIC();
+        if (success)											// If IC input matches Patient p's IC
+        {
+            cout << "Patient of IC: " << p.getMedicalRecord();								// return Patient's Medical Record
+        }
+        else
+            cout << "No existing Patient or Medical Record \n";			// No Patient or Medical Record Exist
+        i++;
+    }
+
+
 }

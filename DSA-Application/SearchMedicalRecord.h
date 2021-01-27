@@ -3,4 +3,5 @@
 #include "Patients.h"
 #include "MedicalRecordList.h"
 
-string search(char& IC);	// Search for Patient using IC
+
+void search(string &IC, MedicalRecordList &MRL);	// Search for Patient using IC
