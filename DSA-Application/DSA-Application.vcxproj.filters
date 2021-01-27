@@ -24,7 +24,10 @@
     <ClCompile Include="Patients.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BinarySearch.cpp">
+    <ClCompile Include="MedicalRecordList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchMedicalRecord.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,7 +38,10 @@
     <ClInclude Include="Patients.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BinarySearch.h">
+    <ClInclude Include="MedicalRecordList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchMedicalRecord.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

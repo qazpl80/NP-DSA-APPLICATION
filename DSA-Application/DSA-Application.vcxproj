@@ -139,13 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BinarySearch.cpp" />
+    <ClCompile Include="SearchMedicalRecord.cpp" />
+    <ClCompile Include="MedicalRecordList.cpp" />
     <ClCompile Include="Patients.cpp" />
     <ClCompile Include="DSA-Application.cpp" />
     <ClCompile Include="Queue.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BinarySearch.h" />
+    <ClInclude Include="MedicalRecordList.h" />
+    <ClInclude Include="SearchMedicalRecord.h" />
     <ClInclude Include="Patients.h" />
     <ClInclude Include="Queue.h" />
   </ItemGroup>
