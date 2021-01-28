@@ -26,6 +26,8 @@ int main()
     
     while (true)
     {
+        printMenu();
+        cin >> option;
         if (option == 1)
         {
             string patientname;             // Initialize patientname for Patient's Name
@@ -40,7 +42,7 @@ int main()
             {
                 // Get Patient's Name
                 cout << "\nPlease Enter Patient's Name: ";
-                cin >> patientname;
+                getline(cin, patientname);
 
                 // Get Patient's IC
                 cout << "\nPlease Enter Patient's IC: ";
