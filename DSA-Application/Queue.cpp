@@ -6,13 +6,13 @@ Queue::Queue()
 {
 	frontNode = NULL;
 	backNode = NULL;
-	number = 0;
 }
 
 Queue::~Queue() { }
 
 bool Queue::enqueue(const ItemType item)
 {
+
 	// create a new node to store data
 	Node* newNode = new Node;
 	newNode->item = item;
@@ -29,8 +29,6 @@ bool Queue::enqueue(const ItemType item)
 		backNode->next = newNode;
 		backNode = newNode;			// new node is at back
 	}
-
-	number++;						// number count plus 1 when enqueue
 	return true;
 }
 
@@ -44,7 +42,6 @@ bool Queue::dequeue()
 		{
 			frontNode = NULL;
 			backNode = NULL;
-			number--;				// number count minus 1 when dequeue
 		}
 		else
 			frontNode = frontNode->next;
@@ -98,9 +95,7 @@ void Queue::resetProgram() //testing
 	// Clear all exisiting queue and reset number count
 	frontNode == NULL;
 	backNode == NULL;
-	number = 0;
 }
-
 
 
 

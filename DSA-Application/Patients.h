@@ -19,13 +19,10 @@ public:
 	Patients(string n , string i, string mr);
 	void setName(string n);
 	string getName();
-	/*void setQueueNum(int q);
-	int getQueueNum();*/
-	///*void setDoctor(string d);
-	//string getDoctor();*/
 	void setIC(string i);
 	string getIC();
 	void setMedicalRecord(string mr);
 	string getMedicalRecord();
+	string printPatient();
 };
 

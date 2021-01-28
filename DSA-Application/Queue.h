@@ -2,6 +2,7 @@
 #pragma once
 #include <iostream>   
 #include "Patients.h"
+#include "MedicalRecordList.h"
 using namespace std;
 
 typedef Patients ItemType;
@@ -17,7 +18,6 @@ private:
 
 	Node* frontNode;		// to point to the front node
 	Node* backNode;			// to point to the back node
-	int number;
 
 public:
 	Queue();
@@ -43,6 +43,8 @@ public:
 	// void print();
 
 	void resetProgram();
+
+	void displayQueueNum();
 
 };
 

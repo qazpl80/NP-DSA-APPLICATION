@@ -143,11 +143,13 @@
     <ClCompile Include="Patients.cpp" />
     <ClCompile Include="DSA-Application.cpp" />
     <ClCompile Include="Queue.cpp" />
+    <ClCompile Include="QueueList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MedicalRecordList.h" />
     <ClInclude Include="Patients.h" />
     <ClInclude Include="Queue.h" />
+    <ClInclude Include="QueueList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
