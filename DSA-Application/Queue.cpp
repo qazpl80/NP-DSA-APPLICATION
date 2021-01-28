@@ -2,6 +2,9 @@
 
 #include "Queue.h"
 
+
+static int queuenumber = 1;
+
 Queue::Queue()
 {
 	frontNode = NULL;
@@ -10,14 +13,15 @@ Queue::Queue()
 
 Queue::~Queue() { }
 
-bool Queue::enqueue(const ItemType item)
+bool Queue::enqueue(const ItemType item,  static int& queuenumber)
 {
 
 	// create a new node to store data
 	Node* newNode = new Node;
 	newNode->item = item;
 	newNode->next = NULL;
-	 
+	newNode->queuenum = queuenumber;
+
 	// insert the new node
 	if (isEmpty())					// enqueue at the front
 	{
@@ -97,5 +101,24 @@ void Queue::resetProgram() //testing
 	backNode == NULL;
 }
 
+int Queue::displayfrontQueueNum()
+{
+	bool success = !isEmpty();
+	if (success)					// queue is not empty -> retrieve item at the front
+		return frontNode->queuenum;
+	else
+		return NULL;
+}
 
-
+//int Queue::displaypatientQueueNum(ItemType& item)
+//{
+//	bool success = !isEmpty();
+//	if (success)					// queue is not empty -> retrieve item at the front
+//		for (int i = 0; i > getLength(); i++)
+//		{
+//			if (item == Node->item)
+//			{
+//
+//			}
+//		}
+//}

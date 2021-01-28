@@ -12,6 +12,7 @@ class Queue
 private:
 	struct Node
 	{
+		int queuenum;
 		ItemType item;		// to store data
 		Node* next;		// to point to next node
 	};
@@ -24,7 +25,7 @@ public:
 	~Queue();
 
 	// enqueue item at back of the queue
-	bool enqueue(ItemType item);
+	bool enqueue(ItemType item, static int& queuenumber);
 
 	// dequeue item from front of the queue
 	bool dequeue();
@@ -44,7 +45,9 @@ public:
 
 	void resetProgram();
 
-	void displayQueueNum();
+	int displayfrontQueueNum();
+
+	//int displaypatientQueueNum(ItemType& item);
 
 };
 
