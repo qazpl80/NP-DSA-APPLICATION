@@ -10,10 +10,10 @@ using namespace std;
 
 void printMenu()
 {
-    cout << "---------- Hospital Counter Program ----------";
+    cout << "\n---------- Hospital Counter Program ----------";
     cout << "\nOption 1: Add new patient\nOption 2: Show all Patient Details\nOption 3: Retieve Patient's Medical Record by Patient's IC";
-    cout << "\nOption 4: Add existing Patient to queue\nOption 5: Display front of queue\n Option 6: Display front and continue in queue";
-    cout << "Please select an option from the menu provided: ";
+    cout << "\nOption 4: Add existing Patient to queue\nOption 5: Display front of queue\nOption 6: Display front and dequeue\n";
+    cout << "\nPlease select an option from the menu provided: ";
 }
 
 int main()
@@ -35,14 +35,16 @@ int main()
             string patientmr;               // Initialize patientmr for Patient's Medical Record
 
             // Print out selected option
-            cout << "Option 1 - Add new patient selected\n------------------------------";
+            cout << "\nOption 1 - Add new patient selected\n------------------------------";
 
             // Error handling
             try
             {
                 // Get Patient's Name
                 cout << "\nPlease Enter Patient's Name: ";
+                cin.ignore();
                 getline(cin, patientname);
+                
 
                 // Get Patient's IC
                 cout << "\nPlease Enter Patient's IC: ";
@@ -50,7 +52,8 @@ int main()
 
                 // Get Patient's Medical Record
                 cout << "\nPlease Enter Patient's Medical Record Details/Description: ";
-                cin >> patientmr;
+                cin.ignore();
+                getline(cin, patientmr);
 
                 // Create new Patient
                 Patients newPatient = Patients(patientname, patientic, patientmr);
@@ -73,7 +76,7 @@ int main()
         else if (option == 2)
         {
             // Print out selected option
-            cout << "Option 2 - Show all Patient Details\n------------------------------";
+            cout << "\nOption 2 - Show all Patient Details\n------------------------------\n";
 
             // Error handling
             try
@@ -83,13 +86,13 @@ int main()
             }
             catch (const exception&)
             {
-                cout << "Error: Please contact the developer to resolve the error.";
+                cout << "Error: Please contact the developer to resolve the error.\n";
             }
         }
         else if (option == 3)
         {
             // Print out selected option
-            cout << "Option 3 - Retieve Patient's Medical Record by Patient's IC\n------------------------------";
+            cout << "\nOption 3 - Retieve Patient's Medical Record by Patient's IC\n------------------------------\n";
 
             string searchIC;                    // Initialize patientname for Patient search IC
 
@@ -111,7 +114,7 @@ int main()
         else if (option == 4)
         {
             // Print out selected option
-            cout << "Option 4 - Add existing Patient to queue\n------------------------------";
+            cout << "\nOption 4 - Add existing Patient to queue\n------------------------------\n";
             Patients patientqueuetemp;                      // Initialize patientqueuetemp for Patient search IC
             string patientqueuename;                        // Initialize patientname for Patient search IC
 
@@ -151,7 +154,7 @@ int main()
         else if (option == 5)
         {
             // Print out selected option
-            cout << "Option 5 - Display front of queue\n------------------------------";
+            cout << "\nOption 5 - Display front of queue\n------------------------------\n";
 
             // Error Handling
             try
@@ -166,6 +169,9 @@ int main()
         }
         else if (option == 6)
         {
+
+            // Print out selected option
+            cout << "\nOption 6 - Display front and dequeue\n------------------------------\n";
             // If not last patient, print Queue number and display patient name while dequeue
             if (PatientQueue.getLength() != 1)
             {

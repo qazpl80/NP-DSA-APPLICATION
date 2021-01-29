@@ -119,12 +119,12 @@ void MedicalRecordList::search(string IC)   // Search Patient using Patient's ID
         bool success = item.getIC() == IC;  // Success if Patient IC matched with provided IC
         if (success)
         {
-            cout << "Patient of IC: " << item.getMedicalRecord();	// Return Patient's Medical Record
-            break;                                                  // End Loop
+            cout << "Medical Record of Patient: " << item.getMedicalRecord();	// Return Patient's Medical Record
+            break;                                                              // End Loop
         }
         else if ((item.getIC() != IC) && size - 1 == i)
         {    
-            cout << "No Medical Record Found";                      //If last item and IC not correct, print No Medical Record Found
+            cout << "No Medical Record Found";                                  //If last item and IC not correct, print No Medical Record Found
             break;
         }
         else
