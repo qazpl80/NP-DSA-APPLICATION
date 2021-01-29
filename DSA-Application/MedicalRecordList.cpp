@@ -107,7 +107,7 @@ void MedicalRecordList::replace(int index, ItemType item)
 void MedicalRecordList::print()
 {
     for (int i = 0; i < size; i++)
-        cout << "Name: "<< get(i).getName() << "\nIC: " << get(i).getIC() << "\nMedical Records: " << get(i).getMedicalRecord()<<"\n" << endl;
+        cout << i << ") " << "\tName: "<< get(i).getName() << "\n\tIC: " << get(i).getIC() << "\n\tMedical Records: " << get(i).getMedicalRecord()<<"\n" << endl;
 }
 
 

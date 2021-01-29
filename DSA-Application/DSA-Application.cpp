@@ -11,8 +11,8 @@ using namespace std;
 void printMenu()
 {
     cout << "\n---------- Hospital Counter Program ----------";
-    cout << "\nOption 1: Add new patient\nOption 2: Show all Patient Details\nOption 3: Retieve Patient's Medical Record by Patient's IC";
-    cout << "\nOption 4: Add existing Patient to queue\nOption 5: Display front of queue\nOption 6: Display front and dequeue\n";
+    cout << "\nOption 1: Add new patient\nOption 2: Remove existing patient\nOption 3: Show all Patient Details\nOption 4: Retieve Patient's Medical Record by Patient's IC";
+    cout << "\nOption 5: Add existing Patient to queue\nOption 6: Display front of queue\nOption 7: Display front and dequeue\n";
     cout << "\nPlease select an option from the menu provided: ";
 }
 
@@ -75,8 +75,36 @@ int main()
         }
         else if (option == 2)
         {
+            int patientlistpos;             // Initialize patientname for Patient's Name
+
             // Print out selected option
-            cout << "\nOption 2 - Show all Patient Details\n------------------------------\n";
+            cout << "\nOption 2 - Remove existing patient\n------------------------------";
+            // Error handling
+            try
+            {
+                // Get Patient's index on the list
+                cout << "\nPlease Enter Patient's index in list: ";
+                cin >> patientlistpos;
+
+                // Remove exisitng patient from list
+                defaultList.remove(patientlistpos);
+            }
+
+            // Input invalid or error
+            catch (const exception&)
+            {
+                cout << "Invalid Input, please try again";
+            }
+            // Add new Patients
+            /*Patients P1 = Patients("Lim Koh Fee", "S0981234J", "Visited 10 times, Had previous heart attacks, Stroke from stress, Fell down stairs, vomit blood, allergic to nearly all drugs except penicillin");
+            Patients P2 = Patients("Wang Si Liew", "S1023384T", "Visited 2 times, had spine surgery after car crash, not allergic to any drugs, partially blind and deaf");
+            Patients P3 = Patients("Xiao Lah Zhi", "S9985242G", "Visited 1 time, Had deep open wound");
+            Patients P4 = Patients("Pris Hel Mee", "S2342352Y", "Visited 3 time, Had flu jab");*/
+        }
+        else if (option == 3)
+        {
+            // Print out selected option
+            cout << "\nOption 3 - Show all Patient Details\n------------------------------\n";
 
             // Error handling
             try
@@ -89,10 +117,10 @@ int main()
                 cout << "Error: Please contact the developer to resolve the error.\n";
             }
         }
-        else if (option == 3)
+        else if (option == 4)
         {
             // Print out selected option
-            cout << "\nOption 3 - Retieve Patient's Medical Record by Patient's IC\n------------------------------\n";
+            cout << "\nOption 4 - Retieve Patient's Medical Record by Patient's IC\n------------------------------\n";
 
             string searchIC;                    // Initialize patientname for Patient search IC
 
@@ -111,25 +139,25 @@ int main()
                 cout << "Error: Please contact the developer to resolve the error.";
             }
         }
-        else if (option == 4)
+        else if (option == 5)
         {
             // Print out selected option
-            cout << "\nOption 4 - Add existing Patient to queue\n------------------------------\n";
+            cout << "\nOption 5 - Add existing Patient to queue\n------------------------------\n";
             Patients patientqueuetemp;                      // Initialize patientqueuetemp for Patient search IC
-            string patientqueuename;                        // Initialize patientname for Patient search IC
+            string patientqueueic;                          // Initialize patientname for Patient search IC
 
             // Get Patient's IC to add to the queue
             cout << "Please enter Patient's IC to add into queue: ";
-            cin >> patientqueuename;
+            cin >> patientqueueic;
 
             //Error handling
             try
             {
                 // For-Loop to check the whole Patient List
-                for (int i = 0; i > defaultList.getLength(); i++)
+                for (int i = 0; i < defaultList.getLength(); i++)
                 {
                     // Enqueue Patient if IC is found in the List
-                    bool success = patientqueuename == defaultList.get(i).getIC();
+                    bool success = patientqueueic == defaultList.get(i).getIC();
                     if (success)
                     {
                         patientqueuetemp = defaultList.get(i);
@@ -151,27 +179,36 @@ int main()
                 cout << "Error: Please contact the developer to resolve the error.";
             }
         }
-        else if (option == 5)
+        else if (option == 6)
         {
             // Print out selected option
-            cout << "\nOption 5 - Display front of queue\n------------------------------\n";
-
+            cout << "\nOption 6 - Display front of queue\n------------------------------\n";
+            string QueueFrontPatientName;
             // Error Handling
             try
             {
                 PatientQueue.getFront(QueueFrontPatient);
-                cout << "\nThe current Patient at the front of the queue is " << QueueFrontPatient.getName() << "\n";
+                QueueFrontPatientName = QueueFrontPatient.getName();
+                if (QueueFrontPatientName != "")
+                {
+                    cout << "\nThe current Patient at the front of the queue is " << QueueFrontPatientName << "\n";
+                }
+                else
+                {
+                    cout << "\nNo Patient is in queue." << QueueFrontPatientName << "\n";
+                }
+
             }
             catch (const exception&)
             {
                 cout << "Error: Queue empty or program error.";
             }
         }
-        else if (option == 6)
+        else if (option == 7)
         {
 
             // Print out selected option
-            cout << "\nOption 6 - Display front and dequeue\n------------------------------\n";
+            cout << "\nOption 7 - Display front and dequeue\n------------------------------\n";
             // If not last patient, print Queue number and display patient name while dequeue
             if (PatientQueue.getLength() != 1)
             {
