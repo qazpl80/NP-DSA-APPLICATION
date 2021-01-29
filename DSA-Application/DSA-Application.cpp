@@ -65,7 +65,7 @@ int main()
             // Input invalid or error
             catch (const exception&)
             {
-                cout << "Invalid Input, please try again";
+                cout << "Invalid Input, please try again.\n";
             }
             // Add new Patients
             /*Patients P1 = Patients("Lim Koh Fee", "S0981234J", "Visited 10 times, Had previous heart attacks, Stroke from stress, Fell down stairs, vomit blood, allergic to nearly all drugs except penicillin");
@@ -93,7 +93,7 @@ int main()
             // Input invalid or error
             catch (const exception&)
             {
-                cout << "Invalid Input, please try again";
+                cout << "Invalid Input, please try again\n";
             }
             // Add new Patients
             /*Patients P1 = Patients("Lim Koh Fee", "S0981234J", "Visited 10 times, Had previous heart attacks, Stroke from stress, Fell down stairs, vomit blood, allergic to nearly all drugs except penicillin");
@@ -109,8 +109,15 @@ int main()
             // Error handling
             try
             {
-                // Print out all Patient's Name, IC and Medical Record
-                defaultList.print();
+                if (defaultList.getLength() != 0)
+                {
+                    // Print out all Patient's Name, IC and Medical Record
+                    defaultList.print();
+                }
+                else
+                {
+                    cout << "List is currently empty, no patient can be found.\n";
+                }
             }
             catch (const exception&)
             {
@@ -136,7 +143,7 @@ int main()
             }
             catch (const exception&)
             {
-                cout << "Error: Please contact the developer to resolve the error.";
+                cout << "Error: Please contact the developer to resolve the error.\n";
             }
         }
         else if (option == 5)
@@ -170,13 +177,13 @@ int main()
                     }
                     else
                     {
-                        cout << "Patient missing or does not exist in list.";
+                        cout << "Patient missing or does not exist in list.\n";
                     }
                 }
             }
             catch (const std::exception&)
             {
-                cout << "Error: Please contact the developer to resolve the error.";
+                cout << "Error: Please contact the developer to resolve the error.\n";
             }
         }
         else if (option == 6)
@@ -201,7 +208,7 @@ int main()
             }
             catch (const exception&)
             {
-                cout << "Error: Queue empty or program error.";
+                cout << "Error: Queue empty or program error.\n";
             }
         }
         else if (option == 7)
@@ -229,7 +236,7 @@ int main()
             // else display no patient in queue
             else 
             {
-                cout << "No Patient existing in queue. If you think this is an error, please contact the program's developer";
+                cout << "No Patient existing in queue. If you think this is an error, please contact the program's developer.\n";
             }
 
         }
