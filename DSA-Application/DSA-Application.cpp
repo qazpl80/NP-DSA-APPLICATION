@@ -12,14 +12,15 @@ void printMenu()
 {
     cout << "\n---------- Hospital Counter Program ----------";
     cout << "\nOption 1: Add new patient\nOption 2: Remove existing patient\nOption 3: Show all Patient Details\nOption 4: Retieve Patient's Medical Record by Patient's IC";
-    cout << "\nOption 5: Add existing Patient to queue\nOption 6: Display front of queue\nOption 7: Display front and dequeue\n";
+    cout << "\nOption 5: Add existing Patient to queue\nOption 6: Display front of queue\nOption 7: Dequeue front patient";
+    cout << "\nOption 0: Exit Program";
     cout << "\nPlease select an option from the menu provided: ";
 }
 
 int main()
 {
     int option;
-    static int queuenumber = 0;
+    static int queuenumber = 1;
     MedicalRecordList defaultList;
     Queue PatientQueue;
     Patients QueueFrontPatient;
@@ -78,16 +79,29 @@ int main()
             int patientlistpos;             // Initialize patientname for Patient's Name
 
             // Print out selected option
-            cout << "\nOption 2 - Remove existing patient\n------------------------------";
+            cout << "\nOption 2 - Remove existing patient\n------------------------------\n";
             // Error handling
             try
             {
-                // Get Patient's index on the list
-                cout << "\nPlease Enter Patient's index in list: ";
-                cin >> patientlistpos;
+                if (defaultList.getLength() != 0)
+                {
+                    // Print out all Patient's Name, IC and Medical Record
+                    defaultList.print();
+                    // Get Patient's index on the list
+                    cout << "\nPlease Enter Patient's index in list: ";
+                    cin >> patientlistpos;
 
-                // Remove exisitng patient from list
-                defaultList.remove(patientlistpos);
+                    // Remove exisitng patient from list
+                    defaultList.remove(patientlistpos);
+
+                    cout << "List updated successfully.\n";
+                    defaultList.print();
+                }
+                else
+                {
+                    cout << "List is currently empty, no patient can be found.\n";
+                }
+
             }
 
             // Input invalid or error
@@ -167,17 +181,39 @@ int main()
                     bool success = patientqueueic == defaultList.get(i).getIC();
                     if (success)
                     {
-                        patientqueuetemp = defaultList.get(i);
+                        if (PatientQueue.getLength() == 0)
+                        {
+                            patientqueuetemp = defaultList.get(i);
 
-                        // Enqueue Patient
-                        PatientQueue.enqueue(patientqueuetemp, queuenumber);
+                            // Enqueue Patient
+                            PatientQueue.enqueue(patientqueuetemp, queuenumber);
 
-                        // Next Patient set increased queue number
-                        queuenumber++;
+                            cout << "\nPatient successfully added into the queue.\n";
+                            break;
+                        }
+                        else
+                        {
+                            patientqueuetemp = defaultList.get(i);
+
+                            // Enqueue Patient
+                            PatientQueue.enqueue(patientqueuetemp, queuenumber);
+
+                            // Next Patient set increased queue number
+                            queuenumber++;
+
+                            cout << "\nPatient successfully added into the queue.\n";
+                            break;
+                        }
+
+                    }
+                    else if (!success)
+                    {
+                        continue;
                     }
                     else
                     {
                         cout << "Patient missing or does not exist in list.\n";
+                        break;
                     }
                 }
             }
@@ -196,9 +232,9 @@ int main()
             {
                 PatientQueue.getFront(QueueFrontPatient);
                 QueueFrontPatientName = QueueFrontPatient.getName();
-                if (QueueFrontPatientName != "")
+                if (QueueFrontPatientName.empty() != true)
                 {
-                    cout << "\nThe current Patient at the front of the queue is " << QueueFrontPatientName << "\n";
+                    cout << "\nCurrent Number: " << PatientQueue.displayfrontQueueNum() << "\tThe current Patient at the front of the queue is " << QueueFrontPatientName << "\n";
                 }
                 else
                 {
@@ -211,34 +247,71 @@ int main()
                 cout << "Error: Queue empty or program error.\n";
             }
         }
+
+
+        //    ------------------------------------------------------------------------------------------
+        //    FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   
+        //    ------------------------------------------------------------------------------------------
+
         else if (option == 7)
         {
-
-            // Print out selected option
-            cout << "\nOption 7 - Display front and dequeue\n------------------------------\n";
-            // If not last patient, print Queue number and display patient name while dequeue
+            cout << "\nOption 7 - Dequeue front patient\n------------------------------\n";
             if (PatientQueue.getLength() != 1)
             {
                 PatientQueue.dequeue(QueueFrontPatient);
-                string FrontPatientName = QueueFrontPatient.getName();
-                cout << "\nCurrent Number: " << PatientQueue.displayfrontQueueNum() << "\t Patient: " << FrontPatientName;
-            }
+                cout << "Patient successfully dequeued";
 
-            // If last patient, print Queue number plus 1 and display patient name while dequeue
-            else if (PatientQueue.getLength() == 1)
-            {
-                int Lastqueue = PatientQueue.displayfrontQueueNum() + 1;
-                PatientQueue.dequeue(QueueFrontPatient);
-                string FrontPatientName = QueueFrontPatient.getName();
-                cout << "\nCurrent Number: " << Lastqueue << "\t Patient: " << FrontPatientName;
-            }
+                // Display Next person in line
+                if (true)   // Condition
+                {
 
-            // else display no patient in queue
-            else 
+                }
+                else        // If last person, stop, get some help
+                {
+
+                }
+            }
+            else
             {
                 cout << "No Patient existing in queue. If you think this is an error, please contact the program's developer.\n";
             }
+            //// Print out selected option
+            //cout << "\nOption 7 - Display front and dequeue\n------------------------------\n";
+            //// If not last patient, print Queue number and display patient name while dequeue
+            //if (PatientQueue.getLength() != 1)
+            //{
+            //    PatientQueue.dequeue(QueueFrontPatient);
+            //    string FrontPatientName = QueueFrontPatient.getName();
+            //    cout << "\nCurrent Number: " << PatientQueue.displayfrontQueueNum() << "\t Patient: " << FrontPatientName;
+            //}
 
+            //// If last patient, print Queue number plus 1 and display patient name while dequeue
+            //else if (PatientQueue.getLength() == 1)
+            //{
+            //    int Lastqueue = PatientQueue.displayfrontQueueNum() + 1;
+            //    PatientQueue.dequeue(QueueFrontPatient);
+            //    string FrontPatientName = QueueFrontPatient.getName();
+            //    cout << "\nCurrent Number: " << Lastqueue << "\t Patient: " << FrontPatientName;
+            //}
+            //else if (PatientQueue.getLength() == 0)
+            //{
+            //    cout << "No Patient existing in queue. If you think this is an error, please contact the program's developer.\n";
+            //}
+            //// else display no patient in queue
+            //else 
+            //{
+            //    cout << "No Patient existing in queue. If you think this is an error, please contact the program's developer.\n";
+            //}
+
+        }
+        else if (option == 0)
+        {
+            cout << "\n---------- End of Program ----------\nProgram developed by Yuan Ming and Gladys\n";
+            break;
+        }
+        else
+        {
+            cout << "Please try again.\n";
         }
 
         // Add new List
