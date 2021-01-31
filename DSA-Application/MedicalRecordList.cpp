@@ -131,3 +131,34 @@ void MedicalRecordList::search(string IC)   // Search Patient using Patient's ID
             continue;
     }
 }
+
+//Quick Sort List
+//int partition(ItemType array[], int left, int right)
+//{
+//    int pivot = array[(left + right) / 2];  // can be any element
+//
+//    while (left < right)                    // stop when there are less than 2 element
+//    {
+//        while (array[left] < pivot)         // move left index
+//            left++;
+//        while (array[right] > pivot)        // move right index
+//            right--;
+//        if (left < right)                   // swap the elements
+//        {
+//            ItemType temp = array[left];
+//            array[left] = array[right];
+//            array[right] = temp;
+//        }
+//    }
+//    return left;                            // return the pivot index  
+//}
+//
+//void quicksort(ItemType array[], int left, int right)
+//{
+//    if (left < right)
+//    {
+//        int pivotidx = partition(array, left, right);
+//        quicksort(array, left, pivotidx - 1);
+//        quicksort(array, pivotidx + 1, right);
+//    }
+//}

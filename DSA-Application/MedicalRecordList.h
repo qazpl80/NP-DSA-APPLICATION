@@ -64,4 +64,9 @@ public:
     void print();
 
     void search(string IC);
+
+    //Quick Sort List
+    //void quicksort(ItemType array[], Patients left, Patients right);
+
+    //int partition(ItemType array[], Patients left, Patients right);
 };
