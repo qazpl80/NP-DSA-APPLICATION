@@ -65,8 +65,7 @@ public:
 
     void search(string IC);
 
-    //Quick Sort List
-    //void quicksort(ItemType array[], Patients left, Patients right);
+    //Radix Sort List
+    /*void Radixsort(ItemType array[], int n, int digit);*/
 
-    //int partition(ItemType array[], Patients left, Patients right);
 };

@@ -132,33 +132,32 @@ void MedicalRecordList::search(string IC)   // Search Patient using Patient's ID
     }
 }
 
-//Quick Sort List
-//int partition(ItemType array[], int left, int right)
+//Radix Sort List
+//void radixSort(int* arr, int n, int max) 
 //{
-//    int pivot = array[(left + right) / 2];  // can be any element
-//
-//    while (left < right)                    // stop when there are less than 2 element
+//    int i, j, m, p = 1, index, temp, count = 0;
+//    list<int> pocket[10];      //radix of decimal number is 10
+//    for (i = 0; i < max; i++) 
 //    {
-//        while (array[left] < pivot)         // move left index
-//            left++;
-//        while (array[right] > pivot)        // move right index
-//            right--;
-//        if (left < right)                   // swap the elements
+//        m = pow(10, i + 1);
+//        p = pow(10, i);
+//        for (j = 0; j < n; j++) 
 //        {
-//            ItemType temp = array[left];
-//            array[left] = array[right];
-//            array[right] = temp;
+//            temp = arr[j] % m;
+//            index = temp / p;      //find index for pocket array
+//            pocket[index].push_back(arr[j]);
+//        }
+//        count = 0;
+//        for (j = 0; j < 10; j++) 
+//        {
+//            //delete from linked lists and store to array
+//            while (!pocket[j].empty()) 
+//            {
+//                arr[count] = *(pocket[j].begin());
+//                pocket[j].erase(pocket[j].begin());
+//                count++;
+//            }
 //        }
 //    }
-//    return left;                            // return the pivot index  
 //}
-//
-//void quicksort(ItemType array[], int left, int right)
-//{
-//    if (left < right)
-//    {
-//        int pivotidx = partition(array, left, right);
-//        quicksort(array, left, pivotidx - 1);
-//        quicksort(array, pivotidx + 1, right);
-//    }
-//}
+

@@ -232,7 +232,7 @@ int main()
             {
                 PatientQueue.getFront(QueueFrontPatient);
                 QueueFrontPatientName = QueueFrontPatient.getName();
-                if (QueueFrontPatientName.empty() != true)
+                if (PatientQueue.isEmpty() != true)
                 {
                     cout << "\nCurrent Number: " << PatientQueue.displayfrontQueueNum() << "\tThe current Patient at the front of the queue is " << QueueFrontPatientName << "\n";
                 }
