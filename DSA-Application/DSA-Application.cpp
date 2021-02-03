@@ -13,7 +13,7 @@ void printMenu()
 {
     cout << "\n---------- Hospital Counter Program ----------";
     cout << "\nOption 1: Add new patient\nOption 2: Remove existing patient\nOption 3: Show all Patient Details\nOption 4: Retieve Patient's Medical Record by Patient's IC";
-    cout << "\nOption 5: Add existing Patient to queue\nOption 6: Display front of queue\nOption 7: Dequeue front patient\.Option 8: Sort Patient List";
+    cout << "\nOption 5: Add existing Patient to queue\nOption 6: Display front of queue\nOption 7: Dequeue front patient.\nOption 8: Sort Patient List";
     cout << "\nOption 0: Exit Program";
     cout << "\nPlease select an option from the menu provided: ";
 }
@@ -307,6 +307,8 @@ int main()
         }
         else if (option == 8)
         {
+            cout << "\nOption 8 - Sort Patient List\n------------------------------";
+
             int sizeoflist = defaultList.getLength();
             defaultList.selectionSort(sizeoflist);
 
