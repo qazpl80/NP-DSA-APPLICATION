@@ -46,8 +46,8 @@ public:
     // post: none
     ItemType get(int index);
 
-    // get an IC at a specified position of the list (retrieve)
-    ItemType getpatient(string &IC);
+    //// get an IC at a specified position of the list (retrieve)
+    //ItemType getpatient();
 
     // check if the list is empty
     // pre : none
@@ -65,7 +65,10 @@ public:
 
     void search(string IC);
 
-    //Radix Sort List
-    /*void Radixsort(ItemType array[], int n, int digit);*/
+    void selectionSort( int n);
+
+    //int partition(ItemType array[], int left, int right);
+
+    //void swap(ItemType& x, ItemType& y);
 
 };

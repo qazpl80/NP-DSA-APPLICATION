@@ -7,12 +7,13 @@ using namespace std;
 #include "Patients.h"
 #include "Queue.h"
 #include <iostream>
+#include "MedicalRecordList.h"
 
 void printMenu()
 {
     cout << "\n---------- Hospital Counter Program ----------";
     cout << "\nOption 1: Add new patient\nOption 2: Remove existing patient\nOption 3: Show all Patient Details\nOption 4: Retieve Patient's Medical Record by Patient's IC";
-    cout << "\nOption 5: Add existing Patient to queue\nOption 6: Display front of queue\nOption 7: Dequeue front patient";
+    cout << "\nOption 5: Add existing Patient to queue\nOption 6: Display front of queue\nOption 7: Dequeue front patient\.Option 8: Sort Patient List";
     cout << "\nOption 0: Exit Program";
     cout << "\nPlease select an option from the menu provided: ";
 }
@@ -303,6 +304,14 @@ int main()
             //    cout << "No Patient existing in queue. If you think this is an error, please contact the program's developer.\n";
             //}
 
+        }
+        else if (option == 8)
+        {
+            int sizeoflist = defaultList.getLength();
+            defaultList.selectionSort(sizeoflist);
+
+            // Print out all Patient's Name, IC and Medical Record
+            defaultList.print();
         }
         else if (option == 0)
         {
