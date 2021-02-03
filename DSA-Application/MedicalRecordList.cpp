@@ -139,14 +139,14 @@ void MedicalRecordList::selectionSort(int n)
 
     int firstindex;
     //current name with the smallest alphabet
-    string firstvalue;
+    Patients firstvalue;
     for (startlist = 0; startlist < (n - 1); startlist++) //go through whole list 
     {
         // assume first index is smallest alphabet
         firstindex = startlist;
 
         // assign current smallest alphabet to firstvalue
-        firstvalue = get(startlist).getName();
+        firstvalue = get(startlist); 
 
         // look for a smaller alphabet in the rest of the array list
         for (int index = (startlist + 1); index < n; index++)
@@ -157,15 +157,14 @@ void MedicalRecordList::selectionSort(int n)
                 firstindex = index;
             }
             
+            
         }
 
         // swap previously recorded smallest name with currently recorded new smallest name
-        if (firstindex != startlist)
-        {
-            firstvalue = get(startlist).getName();
-            get(startlist).getName() = get(firstindex).getName();
-            get(firstindex).getName() = firstvalue;
-        }
+        
+        replace(startlist,get(firstindex));
+        replace(firstindex, firstvalue);
+       
     }
 
     //for (int last = n - 1; last >= 1; last--)
