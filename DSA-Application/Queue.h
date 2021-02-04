@@ -46,6 +46,7 @@ public:
 	void resetProgram();
 
 	int displayfrontQueueNum();
+	void getSecondLargest(ItemType& item);
 
 	//int displaypatientQueueNum(ItemType& item);
 
