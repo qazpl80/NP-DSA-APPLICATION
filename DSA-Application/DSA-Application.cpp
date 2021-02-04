@@ -107,7 +107,7 @@ int main()
                         // Get new Patient's IC for the list
                         cout << "\nPlease Enter new Patient's Name in list: ";
                         cin >> newpatientname;
-                        defaultList.get(patientlistpos).setName(newpatientname);
+                        defaultList.getP(patientlistpos)->setName(newpatientname);
 
                         cout << "List updated successfully.\n";
                         defaultList.print();
@@ -144,7 +144,7 @@ int main()
                         cout << "\nPlease Enter new Patient's IC in list: ";
                         cin >> newpatientic;
 
-                        defaultList.get(patientlistpos).setIC(newpatientic);
+                        defaultList.getP(patientlistpos)->setIC(newpatientic);
 
                         cout << "List updated successfully.\n";
                         defaultList.print();
@@ -184,7 +184,7 @@ int main()
                         cin >> newpatientmedicalrecord;
 
                         // Set new medical record for patient
-                        defaultList.get(patientlistpos).setMedicalRecord(newpatientmedicalrecord);
+                        defaultList.getP(patientlistpos)->setMedicalRecord(newpatientmedicalrecord);
 
                         cout << "List updated successfully.\n";
                         defaultList.print();

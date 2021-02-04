@@ -65,6 +65,16 @@ ItemType MedicalRecordList::get(int index)
     return dataItem;
 }
 
+ItemType* MedicalRecordList::getP(int index)
+{
+    ItemType* dataItem = NULL;
+   
+    bool success = (index >= 0) && (index < size);
+    if (success)
+        dataItem = &items[index];
+
+    return dataItem;
+}
 //
 //ItemType MedicalRecordList::getpatient()
 //{

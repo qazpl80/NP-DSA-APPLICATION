@@ -45,6 +45,7 @@ public:
     // pre : 1 <= index <= size
     // post: none
     ItemType get(int index);
+    ItemType* getP(int index);
 
     //// get an IC at a specified position of the list (retrieve)
     //ItemType getpatient();
