@@ -139,12 +139,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DoctorAssignList.cpp" />
+    <ClCompile Include="Doctors.cpp" />
     <ClCompile Include="MedicalRecordList.cpp" />
     <ClCompile Include="Patients.cpp" />
     <ClCompile Include="DSA-Application.cpp" />
     <ClCompile Include="Queue.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DoctorAssignList.h" />
+    <ClInclude Include="Doctors.h" />
     <ClInclude Include="MedicalRecordList.h" />
     <ClInclude Include="Patients.h" />
     <ClInclude Include="Queue.h" />

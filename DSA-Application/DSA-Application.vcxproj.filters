@@ -27,6 +27,12 @@
     <ClCompile Include="MedicalRecordList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Doctors.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DoctorAssignList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Queue.h">
@@ -36,6 +42,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MedicalRecordList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Doctors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DoctorAssignList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

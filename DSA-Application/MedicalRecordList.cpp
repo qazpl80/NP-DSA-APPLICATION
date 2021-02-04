@@ -141,6 +141,28 @@ void MedicalRecordList::search(string IC)   // Search Patient using Patient's ID
     }
 }
 
+// search for patient in the list using patient's IC
+Patients MedicalRecordList::returnsearch(string IC)   // Search Patient using Patient's ID
+{
+    for (int i = 0; i < size; i++)
+    {
+        ItemType item = get(i);             // Assign item as Patient and retrieve patient from list
+        bool success = item.getIC() == IC;  // Success if Patient IC matched with provided IC
+        if (success)
+        {
+            return item;	// Return Patient's Medical Record
+            break;                                                              // End Loop
+        }
+        else if ((item.getIC() != IC) && size - 1 == i)
+        {
+            return;
+            break;
+        }
+        else
+            continue;
+    }
+}
+
 // selection sort recursive function using partition to split and compare
 void MedicalRecordList::selectionSort(int n)
 {

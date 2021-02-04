@@ -66,6 +66,8 @@ public:
 
     void search(string IC);
 
+    Patients returnsearch(string IC);
+
     void selectionSort( int n);
 
     //int partition(ItemType array[], int left, int right);

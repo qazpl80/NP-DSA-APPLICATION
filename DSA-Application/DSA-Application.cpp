@@ -6,6 +6,8 @@ using namespace std;
 #include "SearchMedicalRecord.h"
 #include "Patients.h"
 #include "Queue.h"
+#include "Doctors.h"
+#include "DoctorAssignList.h"
 #include <iostream>
 #include "MedicalRecordList.h"
 
@@ -14,7 +16,7 @@ void printMenu()
     cout << "\n---------- Hospital Counter Program ----------";
     cout << "\nOption 1: Add new patient\nOption 2: Modify Patient's details existing in the List\nOption 3: Show all Patient Details\nOption 4: Retieve Patient's Medical Record by Patient's IC";
     cout << "\nOption 5: Add existing Patient to queue\nOption 6: Display front of queue\nOption 7: Dequeue front patient.\nOption 8: Sort Patient List";
-    cout << "\nOption 9: \nOption 0: Exit Program";
+    cout << "\nOption 9: Doctor's Details\nOption 0: Exit Program";
     cout << "\nPlease select an option from the menu provided: ";
 }
 
@@ -25,9 +27,8 @@ int main()
     MedicalRecordList defaultList;
     Queue PatientQueue;
     Patients QueueFrontPatient;
-
     Patients QueueSecondPatient;
-
+    DoctorAssignList defaultDoctorList;
 
     while (true)
     {
@@ -399,11 +400,6 @@ int main()
             }
         }
 
-
-        //    ------------------------------------------------------------------------------------------
-        //    FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   
-        //    ------------------------------------------------------------------------------------------
-
         // Option 7 -----------------------------------------------------------------------------------------------------------------------------------------------
         else if (option == "7")
         {
@@ -412,16 +408,6 @@ int main()
             {
                 PatientQueue.dequeue(QueueFrontPatient);
                 cout << "Patient successfully dequeued";
-
-                // Display Next person in line
-                if (true)   // Condition
-                {
-
-                }
-                else        // If last person, stop, get some help
-                {
-
-                }
             }
             else
             {
@@ -472,7 +458,126 @@ int main()
         // Option 9 -----------------------------------------------------------------------------------------------------------------------------------------------
         else if (option == "9")
         {
-            
+            string doctorname;                              // Initialize doctorname for Doctor's Name
+            string doctorassignedpatientic;                 // Initialize doctorassignedpatient for Doctor's Assigned Patient using Patient's IC
+            Patients doctorpatienttemp;
+            cout << "\nOption 9 - Doctor's Details\n------------------------------";
+            // Print out selected option
+
+            string doctoroption;            // Initialize option for doctors
+            cout << "\nOption 1: Add new doctor\nOption 2: Remove an existing doctor\nOption 3: Display Doctor Details\nOption 4: Modify Doctor's Name\nOption 5: Modify Doctor's Assigned Patient\nPlease select an option:";
+            cin >> doctoroption;            // Get user's option
+
+            if (doctoroption == "1")
+            {
+                // Print out selected option
+                cout << "\nOption 1 - Add new doctor\n------------------------------\n";
+
+                // Error Handling
+                try
+                {
+                    // Get Doctor's Name
+                    cout << "\nPlease Enter Doctor's Name: ";
+                    cin.ignore();
+                    getline(cin, doctorname);
+
+                    // Get Patient's IC
+                    cout << "\nPlease Enter Doctor's Assigned Patient IC: ";
+                    cin >> doctorassignedpatientic;
+
+                    // Search exisitng Patient and print out if success
+                    doctorpatienttemp = defaultList.returnsearch(doctorassignedpatientic);
+
+                    // Create new Doctor
+                    Doctors newDoctor = Doctors(doctorname, doctorpatienttemp);
+
+                    // Add new Patient into list
+                    defaultDoctorList.add(newDoctor);
+                }
+                catch (const exception&)
+                {
+                    cout << "Error with adding doctor.\n";
+                }
+            }
+            else if (doctoroption == "2")
+            {
+                // Print out selected option
+                cout << "\nOption 2 - Remove an existing doctor\n------------------------------\n";
+                int doctorlistindex;
+                try
+                {
+                    if (defaultDoctorList.getLength() != 0)
+                    {
+                        // Print out all Doctor's Details
+                        defaultDoctorList.print();
+                        // Get Doctor's index on the list
+                        cout << "\nPlease Enter Doctor index in list: ";
+                        cin >> doctorlistindex;
+
+                        // Remove exisitng patient from list
+                        defaultDoctorList.remove(doctorlistindex);
+
+                        cout << "List updated successfully.\n";
+                        defaultDoctorList.print();
+                    }
+                }
+                catch (const exception&)
+                {
+                    cout << "List is currently empty and/or no doctor can be found.\n";
+                }
+            }
+            else if (doctoroption == "3")
+            {
+                // Print out selected option
+                cout << "\nOption 3 - Display Doctor Details\n------------------------------\n";
+
+                try
+                {
+                    
+                }
+
+                // Input invalid or error
+                catch (const std::exception&)
+                {
+                    cout << "List is currently empty and/or no patient can be found.\n";
+                }
+            }
+            else if (doctoroption == "4")
+            {
+                // Print out selected option
+                cout << "\nOption 4 - Modify Doctor's Name\n------------------------------\n";
+
+                // Error handling
+                try
+                {
+                    
+                }
+                // Input invalid or error
+                catch (const exception&)
+                {
+                    cout << "Invalid Input, please try again\n";
+                }
+            }
+            else if (doctoroption == "5")
+            {
+                // Print out selected option
+                cout << "\nOption 5 - Modify Doctor's Assigned Patient\n------------------------------\n";
+
+                // Error handling
+                try
+                {
+
+                }
+                // Input invalid or error
+                catch (const exception&)
+                {
+                    cout << "Invalid Input, please try again\n";
+                }
+            }
+            else
+            {
+                cout << "Invalid Input, please try again\n";
+            }
         }
 
         // Option 0 -----------------------------------------------------------------------------------------------------------------------------------------------
