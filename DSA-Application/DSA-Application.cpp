@@ -26,6 +26,9 @@ int main()
     Queue PatientQueue;
     Patients QueueFrontPatient;
 
+    Patients QueueSecondPatient;
+
+
     while (true)
     {
         printMenu();
@@ -361,15 +364,29 @@ int main()
             // Print out selected option
             cout << "\nOption 6 - Display front of queue\n------------------------------\n";
             string QueueFrontPatientName;
+            string NextPatientName;
             // Error Handling
             try
             {
                 PatientQueue.getFront(QueueFrontPatient);
                 QueueFrontPatientName = QueueFrontPatient.getName();
-                if (PatientQueue.isEmpty() != true)
+                PatientQueue.getSecondLargest(QueueSecondPatient);
+                NextPatientName = QueueFrontPatient.getName();
+
+
+
+                if (PatientQueue.isEmpty() != true && PatientQueue.getLength() >= 2)
                 {
                     cout << "\nCurrent Number: " << PatientQueue.displayfrontQueueNum() << "\tThe current Patient at the front of the queue is " << QueueFrontPatientName << "\n";
+                    cout << "\nNext Number: " << PatientQueue.displayfrontQueueNum() + 1 << "\tThe next Patient is " << NextPatientName << "\n";
+
                 }
+                else if (PatientQueue.isEmpty() != true && PatientQueue.getLength() == 1)
+                {
+                    cout << "\nCurrent Number: " << PatientQueue.displayfrontQueueNum() << "\tThe current Patient at the front of the queue is " << QueueFrontPatientName << "\n";
+                    cout << "\nNo one else is in queue.\n";
+                }
+
                 else
                 {
                     cout << "\nNo Patient is in queue." << QueueFrontPatientName << "\n";

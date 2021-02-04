@@ -91,7 +91,17 @@ int Queue::getLength()
 
 	return count;
 }
+void Queue::getSecondLargest(ItemType& item)
+{
+	bool success = !isEmpty();
+	if (success && (getLength() >= 2))					// queue is not empty -> retrieve item at the front
 
+		item = frontNode->next->item;
+
+
+
+
+}
 bool Queue::isEmpty() { return frontNode == NULL; }
 
 void Queue::resetProgram() //testing
