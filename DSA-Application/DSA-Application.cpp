@@ -12,9 +12,9 @@ using namespace std;
 void printMenu()
 {
     cout << "\n---------- Hospital Counter Program ----------";
-    cout << "\nOption 1: Add new patient\nOption 2: Remove existing patient\nOption 3: Show all Patient Details\nOption 4: Retieve Patient's Medical Record by Patient's IC";
+    cout << "\nOption 1: Add new patient\nOption 2: Modify Patient's details existing in the List\nOption 3: Show all Patient Details\nOption 4: Retieve Patient's Medical Record by Patient's IC";
     cout << "\nOption 5: Add existing Patient to queue\nOption 6: Display front of queue\nOption 7: Dequeue front patient.\nOption 8: Sort Patient List";
-    cout << "\nOption 0: Exit Program";
+    cout << "\nOption 9: \nOption 0: Exit Program";
     cout << "\nPlease select an option from the menu provided: ";
 }
 
@@ -25,11 +25,13 @@ int main()
     MedicalRecordList defaultList;
     Queue PatientQueue;
     Patients QueueFrontPatient;
-    
+
     while (true)
     {
         printMenu();
         cin >> option;
+
+        // Option 1 -----------------------------------------------------------------------------------------------------------------------------------------------
         if (option == "1")
         {
             string patientname;             // Initialize patientname for Patient's Name
@@ -46,7 +48,7 @@ int main()
                 cout << "\nPlease Enter Patient's Name: ";
                 cin.ignore();
                 getline(cin, patientname);
-                
+
 
                 // Get Patient's IC
                 cout << "\nPlease Enter Patient's IC: ";
@@ -69,53 +71,176 @@ int main()
             {
                 cout << "Invalid Input, please try again.\n";
             }
-            // Add new Patients
-            /*Patients P1 = Patients("Lim Koh Fee", "S0981234J", "Visited 10 times, Had previous heart attacks, Stroke from stress, Fell down stairs, vomit blood, allergic to nearly all drugs except penicillin");
-            Patients P2 = Patients("Wang Si Liew", "S1023384T", "Visited 2 times, had spine surgery after car crash, not allergic to any drugs, partially blind and deaf");
-            Patients P3 = Patients("Xiao Lah Zhi", "S9985242G", "Visited 1 time, Had deep open wound");
-            Patients P4 = Patients("Pris Hel Mee", "S2342352Y", "Visited 3 time, Had flu jab");*/
         }
+
+        // Option 2 -----------------------------------------------------------------------------------------------------------------------------------------------
         else if (option == "2")
         {
-            int patientlistpos;             // Initialize patientname for Patient's Name
-
             // Print out selected option
-            cout << "\nOption 2 - Remove existing patient\n------------------------------\n";
-            // Error handling
-            try
+            cout << "\nOption 2 - Modify Patient's details existing in the List\n------------------------------";
+
+            int patientlistpos;             // Initialize patient position in the list
+            string modifyoption;            // Initialize option to modify or remove existing patient
+            cout << "\nOption 1: Modify Patient's Name\nOption 2: Modify Patient's IC\nOption 3: Modify Patient's Medical Record\nOption 4: Remove an existing patient\nPlease select an option to modify the patient's details:";
+            cin >> modifyoption;            // Get user's option
+
+            if (modifyoption == "1")
             {
-                if (defaultList.getLength() != 0)
+                // Print out selected option
+                cout << "\nOption 1 - Modify Patient's Name\n------------------------------\n";
+
+                // Error Handling
+                try
                 {
+                    if (defaultList.getLength() != 0)
+                    {
+                        // Print out all Patient's Name, IC and Medical Record
+                        defaultList.print();
+
+                        // Get Patient's index on the list
+                        cout << "\nPlease Enter Patient's index in list: ";
+                        cin >> patientlistpos;
+
+                        // initialize new Patient's name
+                        string newpatientname;
+
+                        // Get new Patient's IC for the list
+                        cout << "\nPlease Enter new Patient's Name in list: ";
+                        cin >> newpatientname;
+                        defaultList.get(patientlistpos).setName(newpatientname);
+
+                        cout << "List updated successfully.\n";
+                        defaultList.print();
+                    }
+                    else
+                    {
+                        cout << "List is currently empty and/or no patient can be found.\n";
+                    }
+                }
+                catch (const exception&)
+                {
+                    cout << "List is currently empty and/or no patient can be found.\n";
+                }
+            }
+            else if (modifyoption == "2")
+            {
+                // Print out selected option
+                cout << "\nOption 2 - Modify Patient's IC\n------------------------------\n";
+                try
+                {
+                    if (defaultList.getLength() != 0)
+                    {
+                        // Print out all Patient's Name, IC and Medical Record
+                        defaultList.print();
+
+                        // Get Patient's index on the list
+                        cout << "\nPlease Enter Patient's index in list: ";
+                        cin >> patientlistpos;
+
+                        //initialize new Patient's IC
+                        string newpatientic;
+
+                        // Get new Patient's IC for the list
+                        cout << "\nPlease Enter new Patient's IC in list: ";
+                        cin >> newpatientic;
+
+                        defaultList.get(patientlistpos).setIC(newpatientic);
+
+                        cout << "List updated successfully.\n";
+                        defaultList.print();
+                    }
+                    else
+                    {
+                        cout << "List is currently empty and/or no patient can be found.\n";
+                    }
+                }
+                catch (const exception&)
+                {
+                    cout << "List is currently empty and/or no patient can be found.\n";
+                }
+            }
+            else if (modifyoption == "3")
+            {
+                try
+                {
+                    // Print out selected option
+                    cout << "\nOption 3 - Modify Patient's Medical Record\n------------------------------\n";
+
                     // Print out all Patient's Name, IC and Medical Record
                     defaultList.print();
+
                     // Get Patient's index on the list
                     cout << "\nPlease Enter Patient's index in list: ";
                     cin >> patientlistpos;
 
-                    // Remove exisitng patient from list
-                    defaultList.remove(patientlistpos);
+                    // Check if list if empty
+                    if (defaultList.getLength() != 0)
+                    {
+                        //initialize new Patient's Medical Record
+                        string newpatientmedicalrecord;
 
-                    cout << "List updated successfully.\n";
-                    defaultList.print();
+                        // Get new Patient's Medical record for the list
+                        cout << "\nPlease Enter new Patient's Medical Record in list: ";
+                        cin >> newpatientmedicalrecord;
+
+                        // Set new medical record for patient
+                        defaultList.get(patientlistpos).setMedicalRecord(newpatientmedicalrecord);
+
+                        cout << "List updated successfully.\n";
+                        defaultList.print();
+                    }
+                    else
+                    {
+                        cout << "List is currently empty and/or no patient can be found.\n";
+                    }
                 }
-                else
+
+                // Input invalid or error
+                catch (const std::exception&)
                 {
-                    cout << "List is currently empty, no patient can be found.\n";
+                    cout << "List is currently empty and/or no patient can be found.\n";
                 }
-
             }
+            else if (modifyoption == "4")
+            {
+                // Print out selected option
+                cout << "\nOption 4 - Remove an existing Patient\n------------------------------\n";
 
-            // Input invalid or error
-            catch (const exception&)
+                // Error handling
+                try
+                {
+                    if (defaultList.getLength() != 0)
+                    {
+                        // Print out all Patient's Name, IC and Medical Record
+                        defaultList.print();
+                        // Get Patient's index on the list
+                        cout << "\nPlease Enter Patient's index in list: ";
+                        cin >> patientlistpos;
+
+                        // Remove exisitng patient from list
+                        defaultList.remove(patientlistpos);
+
+                        cout << "List updated successfully.\n";
+                        defaultList.print();
+                    }
+                    else
+                    {
+                        cout << "List is currently empty and/or no patient can be found.\n";
+                    }
+                }
+                // Input invalid or error
+                catch (const exception&)
+                {
+                    cout << "Invalid Input, please try again\n";
+                }
+            }
+            else
             {
                 cout << "Invalid Input, please try again\n";
             }
-            // Add new Patients
-            /*Patients P1 = Patients("Lim Koh Fee", "S0981234J", "Visited 10 times, Had previous heart attacks, Stroke from stress, Fell down stairs, vomit blood, allergic to nearly all drugs except penicillin");
-            Patients P2 = Patients("Wang Si Liew", "S1023384T", "Visited 2 times, had spine surgery after car crash, not allergic to any drugs, partially blind and deaf");
-            Patients P3 = Patients("Xiao Lah Zhi", "S9985242G", "Visited 1 time, Had deep open wound");
-            Patients P4 = Patients("Pris Hel Mee", "S2342352Y", "Visited 3 time, Had flu jab");*/
         }
+
+        // Option 3 -----------------------------------------------------------------------------------------------------------------------------------------------
         else if (option == "3")
         {
             // Print out selected option
@@ -134,11 +259,15 @@ int main()
                     cout << "List is currently empty, no patient can be found.\n";
                 }
             }
+
+            // Input invalid or error
             catch (const exception&)
             {
                 cout << "Error: Please contact the developer to resolve the error.\n";
             }
         }
+
+        // Option 4 -----------------------------------------------------------------------------------------------------------------------------------------------
         else if (option == "4")
         {
             // Print out selected option
@@ -161,6 +290,8 @@ int main()
                 cout << "Error: Please contact the developer to resolve the error.\n";
             }
         }
+
+        // Option 5 -----------------------------------------------------------------------------------------------------------------------------------------------
         else if (option == "5")
         {
             // Print out selected option
@@ -223,6 +354,8 @@ int main()
                 cout << "Error: Please contact the developer to resolve the error.\n";
             }
         }
+
+        // Option 6 -----------------------------------------------------------------------------------------------------------------------------------------------
         else if (option == "6")
         {
             // Print out selected option
@@ -254,6 +387,7 @@ int main()
         //    FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   
         //    ------------------------------------------------------------------------------------------
 
+        // Option 7 -----------------------------------------------------------------------------------------------------------------------------------------------
         else if (option == "7")
         {
             cout << "\nOption 7 - Dequeue front patient\n------------------------------\n";
@@ -305,6 +439,8 @@ int main()
             //}
 
         }
+
+        // Option 8 -----------------------------------------------------------------------------------------------------------------------------------------------
         else if (option == "8")
         {
             cout << "\nOption 8 - Sort Patient List\n------------------------------";
@@ -315,16 +451,28 @@ int main()
             // Print out all Patient's Name, IC and Medical Record
             defaultList.print();
         }
+
+        // Option 9 -----------------------------------------------------------------------------------------------------------------------------------------------
+        else if (option == "9")
+        {
+            
+        }
+
+        // Option 0 -----------------------------------------------------------------------------------------------------------------------------------------------
         else if (option == "0")
         {
             cout << "\n---------- End of Program ----------\nProgram developed by Yuan Ming and Gladys\n";
             break;
         }
+
+        // Other Option -----------------------------------------------------------------------------------------------------------------------------------------------
         else
         {
             cout << "Please try again.\n";
             continue;
         }
+    }
+}
 
         // Add new List
        /* MedicalRecordList MRL1;*/
@@ -380,6 +528,5 @@ int main()
         Booking.dequeue(Front);
         FrontQueuePatient = Front.getName();
         cout << "\nCurrent Number: " << Lastqueue << "\t Patient: " << FrontQueuePatient;*/
-    }
-}
+
 
