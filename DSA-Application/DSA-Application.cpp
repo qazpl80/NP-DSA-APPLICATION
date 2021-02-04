@@ -20,7 +20,7 @@ void printMenu()
 
 int main()
 {
-    int option;
+    string option;
     static int queuenumber = 1;
     MedicalRecordList defaultList;
     Queue PatientQueue;
@@ -30,7 +30,7 @@ int main()
     {
         printMenu();
         cin >> option;
-        if (option == 1)
+        if (option == "1")
         {
             string patientname;             // Initialize patientname for Patient's Name
             string patientic;               // Initialize patientic for Patient's IC
@@ -75,7 +75,7 @@ int main()
             Patients P3 = Patients("Xiao Lah Zhi", "S9985242G", "Visited 1 time, Had deep open wound");
             Patients P4 = Patients("Pris Hel Mee", "S2342352Y", "Visited 3 time, Had flu jab");*/
         }
-        else if (option == 2)
+        else if (option == "2")
         {
             int patientlistpos;             // Initialize patientname for Patient's Name
 
@@ -116,7 +116,7 @@ int main()
             Patients P3 = Patients("Xiao Lah Zhi", "S9985242G", "Visited 1 time, Had deep open wound");
             Patients P4 = Patients("Pris Hel Mee", "S2342352Y", "Visited 3 time, Had flu jab");*/
         }
-        else if (option == 3)
+        else if (option == "3")
         {
             // Print out selected option
             cout << "\nOption 3 - Show all Patient Details\n------------------------------\n";
@@ -139,7 +139,7 @@ int main()
                 cout << "Error: Please contact the developer to resolve the error.\n";
             }
         }
-        else if (option == 4)
+        else if (option == "4")
         {
             // Print out selected option
             cout << "\nOption 4 - Retieve Patient's Medical Record by Patient's IC\n------------------------------\n";
@@ -161,7 +161,7 @@ int main()
                 cout << "Error: Please contact the developer to resolve the error.\n";
             }
         }
-        else if (option == 5)
+        else if (option == "5")
         {
             // Print out selected option
             cout << "\nOption 5 - Add existing Patient to queue\n------------------------------\n";
@@ -223,7 +223,7 @@ int main()
                 cout << "Error: Please contact the developer to resolve the error.\n";
             }
         }
-        else if (option == 6)
+        else if (option == "6")
         {
             // Print out selected option
             cout << "\nOption 6 - Display front of queue\n------------------------------\n";
@@ -254,7 +254,7 @@ int main()
         //    FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   FIX YO SHYT   
         //    ------------------------------------------------------------------------------------------
 
-        else if (option == 7)
+        else if (option == "7")
         {
             cout << "\nOption 7 - Dequeue front patient\n------------------------------\n";
             if (PatientQueue.getLength() != 1)
@@ -305,7 +305,7 @@ int main()
             //}
 
         }
-        else if (option == 8)
+        else if (option == "8")
         {
             cout << "\nOption 8 - Sort Patient List\n------------------------------";
 
@@ -315,7 +315,7 @@ int main()
             // Print out all Patient's Name, IC and Medical Record
             defaultList.print();
         }
-        else if (option == 0)
+        else if (option == "0")
         {
             cout << "\n---------- End of Program ----------\nProgram developed by Yuan Ming and Gladys\n";
             break;
@@ -323,6 +323,7 @@ int main()
         else
         {
             cout << "Please try again.\n";
+            continue;
         }
 
         // Add new List
