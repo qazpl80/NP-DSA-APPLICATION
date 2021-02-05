@@ -13,7 +13,7 @@ using namespace std;
 
 void printMenu()
 {
-    cout << "\n\n---------- Hospital Counter Program ----------";
+    cout << "\n\n---------- Clinic Counter Program ----------";
     cout << "\nOption 1: Add new patient\nOption 2: Modify Patient's details existing in the List\nOption 3: Show all Patient Details\nOption 4: Retieve Patient's Medical Record by Patient's IC";
     cout << "\nOption 5: Add existing Patient to queue\nOption 6: Display front of queue\nOption 7: Dequeue front patient.\nOption 8: Sort Patient List";
     cout << "\nOption 9: Doctor's Assign Details\nOption 0: Exit Program";
@@ -48,28 +48,41 @@ int main()
             // Error handling
             try
             {
-                cout << "\nEnter '0' to exit ";
+                while (true)
+                {
+                    cout << "\nEnter '0' to exit ";
 
-                // Get Patient's Name
-                cout << "\nPlease Enter Patient's Name: ";
-                cin.ignore();
-                getline(cin, patientname);
+                    // Get Patient's Name
+                    cout << "\nPlease Enter Patient's Name: ";
+                    cin.ignore();
+                    getline(cin, patientname);
 
-                // Get Patient's IC
-                cout << "\nPlease Enter Patient's IC: ";
-                cin >> patientic;
+                    if (patientname == "0")
+                        break;
 
-                // Get Patient's Medical Record
-                cout << "\nPlease Enter Patient's Medical Record Details/Description: ";
-                cin.ignore();
-                getline(cin, patientmr);
+                    // Get Patient's IC
+                    cout << "\nPlease Enter Patient's IC: ";
+                    cin >> patientic;
 
-                // Create new Patient
-                Patients newPatient = Patients(patientname, patientic, patientmr);
+                    if (patientic == "0")
+                        break;
 
-                // Add new Patient into list
-                defaultList.add(newPatient);
-                
+                    // Get Patient's Medical Record
+                    cout << "\nPlease Enter Patient's Medical Record Details/Description: ";
+                    cin.ignore();
+                    getline(cin, patientmr);
+
+                    if (patientmr == "0")
+                        break;
+
+                    // Create new Patient
+                    Patients newPatient = Patients(patientname, patientic, patientmr);
+
+                    // Add new Patient into list
+                    defaultList.add(newPatient);
+                    cout << "\nPatient Successfully added into list.";
+                    break;
+                }
             }
 
             // Input invalid or error
