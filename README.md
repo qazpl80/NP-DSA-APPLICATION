@@ -2,7 +2,7 @@
 
 ## Details
 
-This program make use of at least one data structure. It is used to demonstrate application of algorithms learnt (e.g. searching, sorting, recursion etc). </br>
+This program make use of at Queue List, Linked List and Array List. It is used to demonstrate application of algorithms learnt (e.g. searching, sorting, recursion etc). </br>
 </br>
 In addition to the basic requirements outlined above, the program might contain additional features.  </br>
 </br>
@@ -16,6 +16,6 @@ Examples of additional features: </br>
 
 ## Pre-launch settings and Note </br>
 The program might/might not require the following to be done before it can be launched: </br>
-</br>
-</br>
-</br>
+The file must be downloaded and unzipped if the file is zipped.</br>
+The program might contain a few bugs and glitches.</br>
+The program is using C++ Programming Language to run.</br>
