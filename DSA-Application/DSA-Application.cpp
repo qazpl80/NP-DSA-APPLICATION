@@ -573,7 +573,7 @@ int main()
                         // Get Doctor's index on the list
                         cout << "\nPlease Enter new Doctor's Name: ";
                         cin.ignore();
-                        getline(cin, doctorname);
+                        getline(cin, newdoctorname);
 
                         // Update List for new doctor name
                         defaultDoctorList.getD(doctorlistpos)->setDoctorName(newdoctorname);

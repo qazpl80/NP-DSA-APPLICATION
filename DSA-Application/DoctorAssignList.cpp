@@ -83,7 +83,7 @@ bool DoctorAssignList::add(int index, DItemType item)
 		}
 		size++;
 	}
-
+	sorting();
 	return success;
 }
 
@@ -159,6 +159,7 @@ int DoctorAssignList::getLength() { return size; }
 //------------------- Other useful functions -----------------
 void DoctorAssignList::print()
 {
+	sorting();
 	Node* temp = firstNode;
 	int i = 0;
 
