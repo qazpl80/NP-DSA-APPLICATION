@@ -13,10 +13,10 @@ using namespace std;
 
 void printMenu()
 {
-    cout << "\n---------- Hospital Counter Program ----------";
+    cout << "\n\n---------- Hospital Counter Program ----------";
     cout << "\nOption 1: Add new patient\nOption 2: Modify Patient's details existing in the List\nOption 3: Show all Patient Details\nOption 4: Retieve Patient's Medical Record by Patient's IC";
     cout << "\nOption 5: Add existing Patient to queue\nOption 6: Display front of queue\nOption 7: Dequeue front patient.\nOption 8: Sort Patient List";
-    cout << "\nOption 9: Doctor's Details\nOption 0: Exit Program";
+    cout << "\nOption 9: Doctor's Assign Details\nOption 0: Exit Program";
     cout << "\nPlease select an option from the menu provided: ";
 }
 
@@ -75,7 +75,7 @@ int main()
             // Input invalid or error
             catch (const exception&)
             {
-                cout << "Invalid Input, please try again.\n";
+                cout << "\nInvalid Input, please try again.\n";
             }
         }
 
@@ -120,12 +120,12 @@ int main()
                     }
                     else
                     {
-                        cout << "List is currently empty and/or no patient can be found.\n";
+                        cout << "\nList is currently empty and/or no patient can be found.\n";
                     }
                 }
                 catch (const exception&)
                 {
-                    cout << "List is currently empty and/or no patient can be found.\n";
+                    cout << "\nList is currently empty and/or no patient can be found.\n";
                 }
             }
             else if (modifyoption == "2")
@@ -152,17 +152,17 @@ int main()
 
                         defaultList.getP(patientlistpos)->setIC(newpatientic);
 
-                        cout << "List updated successfully.\n";
+                        cout << "\nList updated successfully.\n";
                         defaultList.print();
                     }
                     else
                     {
-                        cout << "List is currently empty and/or no patient can be found.\n";
+                        cout << "\nList is currently empty and/or no patient can be found.\n";
                     }
                 }
                 catch (const exception&)
                 {
-                    cout << "List is currently empty and/or no patient can be found.\n";
+                    cout << "\nList is currently empty and/or no patient can be found.\n";
                 }
             }
             else if (modifyoption == "3")
@@ -192,19 +192,19 @@ int main()
                         // Set new medical record for patient
                         defaultList.getP(patientlistpos)->setMedicalRecord(newpatientmedicalrecord);
 
-                        cout << "List updated successfully.\n";
+                        cout << "\nList updated successfully.\n";
                         defaultList.print();
                     }
                     else
                     {
-                        cout << "List is currently empty and/or no patient can be found.\n";
+                        cout << "\nList is currently empty and/or no patient can be found.\n";
                     }
                 }
 
                 // Input invalid or error
                 catch (const std::exception&)
                 {
-                    cout << "List is currently empty and/or no patient can be found.\n";
+                    cout << "\nList is currently empty and/or no patient can be found.\n";
                 }
             }
             else if (modifyoption == "4")
@@ -226,23 +226,23 @@ int main()
                         // Remove exisitng patient from list
                         defaultList.remove(patientlistpos);
 
-                        cout << "List updated successfully.\n";
+                        cout << "\nList updated successfully.\n";
                         defaultList.print();
                     }
                     else
                     {
-                        cout << "List is currently empty and/or no patient can be found.\n";
+                        cout << "\nList is currently empty and/or no patient can be found.\n";
                     }
                 }
                 // Input invalid or error
                 catch (const exception&)
                 {
-                    cout << "Invalid Input, please try again\n";
+                    cout << "\nInvalid Input, please try again\n";
                 }
             }
             else
             {
-                cout << "Invalid Input, please try again\n";
+                cout << "\nInvalid Input, please try again\n";
             }
         }
 
@@ -262,14 +262,14 @@ int main()
                 }
                 else
                 {
-                    cout << "List is currently empty, no patient can be found.\n";
+                    cout << "\nList is currently empty, no patient can be found.\n";
                 }
             }
 
             // Input invalid or error
             catch (const exception&)
             {
-                cout << "Error: Please contact the developer to resolve the error.\n";
+                cout << "\nError: Please contact the developer to resolve the error.\n";
             }
         }
 
@@ -293,7 +293,7 @@ int main()
             }
             catch (const exception&)
             {
-                cout << "Error: Please contact the developer to resolve the error.\n";
+                cout << "\nError: Please contact the developer to resolve the error.\n";
             }
         }
 
@@ -350,14 +350,14 @@ int main()
                     }
                     else
                     {
-                        cout << "Patient missing or does not exist in list.\n";
+                        cout << "\nPatient missing or does not exist in list.\n";
                         break;
                     }
                 }
             }
             catch (const std::exception&)
             {
-                cout << "Error: Please contact the developer to resolve the error.\n";
+                cout << "\nError: Please contact the developer to resolve the error.\n";
             }
         }
 
@@ -396,7 +396,7 @@ int main()
             }
             catch (const exception&)
             {
-                cout << "Error: Queue empty or program error.\n";
+                cout << "\nError: Queue empty or program error.\n";
             }
         }
 
@@ -407,11 +407,11 @@ int main()
             if (PatientQueue.getLength() != 1)
             {
                 PatientQueue.dequeue(QueueFrontPatient);
-                cout << "Patient successfully dequeued";
+                cout << "\nPatient successfully dequeued";
             }
             else
             {
-                cout << "No Patient existing in queue.\n";
+                cout << "\nNo Patient existing in queue.\n";
             }
             //// Print out selected option
             //cout << "\nOption 7 - Display front and dequeue\n------------------------------\n";
@@ -466,11 +466,11 @@ int main()
             string newassignedpatientic;                    // initialize Patient's IC to search
             Patients newassignedpatient;                    // initialize new Assigned Patient for modification
 
-            cout << "\nOption 9 - Doctor's Details\n------------------------------";
+            cout << "\nOption 9 - Doctor's Assign Details\n------------------------------";
             // Print out selected option
 
             string doctoroption;            // Initialize option for doctors
-            cout << "\nOption 1: Add new doctor\nOption 2: Remove an existing doctor\nOption 3: Display Doctor Details\nOption 4: Modify Doctor's Name\nOption 5: Modify Doctor's Assigned Patient\nPlease select an option: ";
+            cout << "\nOption 1: Add New Doctor Details\nOption 2: Remove an Existing Doctor Detais\nOption 3: Display All Doctor Details\nOption 4: Modify Doctor's Name\nOption 5: Modify Doctor's Assigned Patient\nPlease select an option: ";
             cin >> doctoroption;            // Get user's option
 
             if (doctoroption == "1")
@@ -501,7 +501,7 @@ int main()
                 }
                 catch (const exception&)
                 {
-                    cout << "Error with adding doctor.\n";
+                    cout << "\nError with adding doctor.\n";
                 }
             }
             else if (doctoroption == "2")
@@ -522,17 +522,17 @@ int main()
                         // Remove exisitng patient from list
                         defaultDoctorList.remove(doctorlistindex);
 
-                        cout << "List updated successfully.\n";
+                        cout << "\nList updated successfully.\n";
                         defaultDoctorList.print();
                     }
                     else
                     {
-                        cout << "List is currently empty and/or no doctor can be found.\n";
+                        cout << "\nList is currently empty and/or no doctor can be found.\n";
                     }
                 }
                 catch (const exception&)
                 {
-                    cout << "List is currently empty and/or no doctor can be found.\n";
+                    cout << "\nList is currently empty and/or no doctor can be found.\n";
                 }
             }
             else if (doctoroption == "3")
@@ -549,7 +549,7 @@ int main()
                 // Input invalid or error
                 catch (const std::exception&)
                 {
-                    cout << "List is currently empty and/or no doctor can be found.\n";
+                    cout << "\nList is currently empty and/or no doctor can be found.\n";
                 }
             }
             else if (doctoroption == "4")
@@ -572,23 +572,24 @@ int main()
 
                         // Get Doctor's index on the list
                         cout << "\nPlease Enter new Doctor's Name: ";
-                        cin >> newdoctorname;
+                        cin.ignore();
+                        getline(cin, doctorname);
 
                         // Update List for new doctor name
                         defaultDoctorList.getD(doctorlistpos)->setDoctorName(newdoctorname);
 
-                        cout << "List updated successfully.\n";
+                        cout << "\nList updated successfully.\n";
                         defaultDoctorList.print();
                     }
                     else
                     {
-                        cout << "Doctor or Patient List is currently empty and/or no doctor/patient can be found.\n";
+                        cout << "\nDoctor or Patient List is currently empty and/or no doctor/patient can be found.\n";
                     }
                 }
                 // Input invalid or error
                 catch (const exception&)
                 {
-                    cout << "Invalid Input, please try again\n";
+                    cout << "\nInvalid Input, please try again\n";
                 }
             }
             else if (doctoroption == "5")
@@ -624,19 +625,19 @@ int main()
                     }
                     else
                     {
-                        cout << "Doctor or Patient List is currently empty and/or no doctor/patient can be found.\n";
+                        cout << "\nDoctor or Patient List is currently empty and/or no doctor/patient can be found.\n";
                     }
 
                 }
                 // Input invalid or error
                 catch (const exception&)
                 {
-                    cout << "Invalid Input, please try again\n";
+                    cout << "\nInvalid Input, please try again\n";
                 }
             }
             else
             {
-                cout << "Invalid Input, please try again\n";
+                cout << "\nInvalid Input, please try again\n";
             }
         }
 
@@ -650,7 +651,7 @@ int main()
         // Other Option -----------------------------------------------------------------------------------------------------------------------------------------------
         else
         {
-            cout << "Please try again.\n";
+            cout << "\nPlease try again.\n";
             continue;
         }
     }

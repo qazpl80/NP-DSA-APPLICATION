@@ -12,6 +12,26 @@ DoctorAssignList::DoctorAssignList()
 	size = 0;
 }
 
+void DoctorAssignList::sorting()
+{
+	Node* current;
+	Node* bcurrent;
+	current = firstNode;
+	bcurrent = firstNode->next;
+
+	for (int i = size - 1; i >= 0; i--) {
+		current = firstNode;
+		bcurrent = firstNode->next;
+		for (int j = 0; j < size - 1; j++) {
+			if (current->item.getDoctorName() > bcurrent->item.getDoctorName()) {
+				swap(current->item, bcurrent->item);
+			}
+			current = bcurrent;
+			bcurrent = bcurrent->next;
+		}
+	}
+}
+
 // add an item to the back of the list (append)
 bool DoctorAssignList::add(DItemType item)
 {
@@ -30,6 +50,7 @@ bool DoctorAssignList::add(DItemType item)
 		temp->next = newNode;		// make last node point to the new node
 	}
 	size++;
+	sorting();
 
 	return true;  // no size constraint
 }
@@ -155,7 +176,19 @@ void DoctorAssignList::print()
 		cout << "The list is empty." << endl;
 }
 
-// void replace(int index, ItemType item)
-// int search(ItemType item)
+//-------------------------------------------------------------------------------- Auto Sort Function --------------------------------------------------------------------------------
+
+//pseudocode
+//SORT(head)
+//if (head->next == null)
+//return
+//tempNode = head->next
+//SORT(tempNode)
+//if (tempNode->value < head->value)
+//	SWAP(head, tempNode)
+//	SORT(head)
+//return
+
+
 
 

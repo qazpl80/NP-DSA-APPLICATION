@@ -25,6 +25,8 @@ public:
 	// constructor
 	DoctorAssignList();
 
+	void sorting();
+
 	// add an item to the back of the list (append)
 	// pre : size < MAX_SIZE
 	// post: item is added to the back of the list
