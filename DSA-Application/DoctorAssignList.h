@@ -51,6 +51,8 @@ public:
 	// return the item in the specified index of the list
 	DItemType get(int index);
 
+	DItemType* getD(int index);
+
 	// check if the list is empty
 	// pre : none
 	// post: none

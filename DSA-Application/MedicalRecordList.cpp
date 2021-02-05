@@ -94,16 +94,6 @@ int MedicalRecordList::getLength()
     return size;
 }
 
-// display item in the list
-void MedicalRecordList::display()
-{
-    for (int i = 0; i < getLength(); i++)
-    {
-        ItemType item = get(i);
-        //		cout << item << endl;
-    }
-}
-
 // replace item in the list
 void MedicalRecordList::replace(int index, ItemType item)
 {
@@ -155,7 +145,6 @@ Patients MedicalRecordList::returnsearch(string IC)   // Search Patient using Pa
         }
         else if ((item.getIC() != IC) && size - 1 == i)
         {
-            return;
             break;
         }
         else

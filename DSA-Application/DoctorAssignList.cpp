@@ -113,6 +113,22 @@ DItemType DoctorAssignList::get(int index)
 	return item;
 }
 
+DItemType* DoctorAssignList::getD(int index)
+{
+	DItemType* item = NULL;
+	bool success = (index >= 0) && (index < size);
+	if (success)
+	{
+		Node* current = firstNode;
+		for (int i = 0; i < index; i++)
+			current = current->next;		// move to next node
+
+		item = &current->item;
+	}
+
+	return item;
+}
+
 // check if the list is empty
 bool DoctorAssignList::isEmpty() { return size == 0; }
 
@@ -123,17 +139,16 @@ int DoctorAssignList::getLength() { return size; }
 void DoctorAssignList::print()
 {
 	Node* temp = firstNode;
+	int i = 0;
 
 	if (temp != NULL)		// list is NOT empty
 	{
 		while (temp != NULL)
 		{
-			for (int i = 0; i < size; i++)
-			{
-				cout << i << ")" << temp->item.printDoctor() << "\n";
-				temp = temp->next;		// move to next node
-			}
-			
+			cout << i << ") ";
+			cout << temp->item.printDoctor() << "\n" << endl;
+			temp = temp->next;		// move to next node
+			i++;
 		}
 	}
 	else   // list is empty

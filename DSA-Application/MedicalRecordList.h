@@ -37,8 +37,6 @@ public:
     //       size of list is decreased by 1
     void remove(int index);
 
-    void display();
-
     void replace(int index, ItemType item);
 
     // get an item at a specified position of the list (retrieve)

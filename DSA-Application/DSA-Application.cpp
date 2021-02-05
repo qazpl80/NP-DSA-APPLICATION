@@ -48,11 +48,12 @@ int main()
             // Error handling
             try
             {
+                cout << "\nEnter '0' to exit ";
+
                 // Get Patient's Name
                 cout << "\nPlease Enter Patient's Name: ";
                 cin.ignore();
                 getline(cin, patientname);
-
 
                 // Get Patient's IC
                 cout << "\nPlease Enter Patient's IC: ";
@@ -68,6 +69,7 @@ int main()
 
                 // Add new Patient into list
                 defaultList.add(newPatient);
+                
             }
 
             // Input invalid or error
@@ -446,7 +448,7 @@ int main()
         // Option 8 -----------------------------------------------------------------------------------------------------------------------------------------------
         else if (option == "8")
         {
-            cout << "\nOption 8 - Sort Patient List\n------------------------------";
+            cout << "\nOption 8 - Sort Patient List\n------------------------------\n";
 
             int sizeoflist = defaultList.getLength();
             defaultList.selectionSort(sizeoflist);
@@ -458,14 +460,19 @@ int main()
         // Option 9 -----------------------------------------------------------------------------------------------------------------------------------------------
         else if (option == "9")
         {
+            int doctorlistpos;                              // Initialize patient position in the list
             string doctorname;                              // Initialize doctorname for Doctor's Name
             string doctorassignedpatientic;                 // Initialize doctorassignedpatient for Doctor's Assigned Patient using Patient's IC
-            Patients doctorpatienttemp;
+            Patients doctorpatienttemp;                     // Initialize doctor's assigned patient for adding to the list
+            string newdoctorname;                           // Initialize new doctor name for modification
+            string newassignedpatientic;                    // initialize Patient's IC to search
+            Patients newassignedpatient;                    // initialize new Assigned Patient for modification
+
             cout << "\nOption 9 - Doctor's Details\n------------------------------";
             // Print out selected option
 
             string doctoroption;            // Initialize option for doctors
-            cout << "\nOption 1: Add new doctor\nOption 2: Remove an existing doctor\nOption 3: Display Doctor Details\nOption 4: Modify Doctor's Name\nOption 5: Modify Doctor's Assigned Patient\nPlease select an option:";
+            cout << "\nOption 1: Add new doctor\nOption 2: Remove an existing doctor\nOption 3: Display Doctor Details\nOption 4: Modify Doctor's Name\nOption 5: Modify Doctor's Assigned Patient\nPlease select an option: ";
             cin >> doctoroption;            // Get user's option
 
             if (doctoroption == "1")
@@ -533,13 +540,14 @@ int main()
 
                 try
                 {
-                    
+                        // Print out all Doctor's Details
+                        defaultDoctorList.print();
                 }
 
                 // Input invalid or error
                 catch (const std::exception&)
                 {
-                    cout << "List is currently empty and/or no patient can be found.\n";
+                    cout << "List is currently empty and/or no doctor can be found.\n";
                 }
             }
             else if (doctoroption == "4")
@@ -550,7 +558,23 @@ int main()
                 // Error handling
                 try
                 {
-                    
+
+                    // Print out all Doctor's Details
+                    defaultDoctorList.print();
+
+                    // Get Doctor's index on the list
+                    cout << "\nPlease Enter Doctor's index in list: ";
+                    cin >> doctorlistpos;
+
+                    // Get Doctor's index on the list
+                    cout << "\nPlease Enter new Doctor's Name: ";
+                    cin >> newdoctorname;
+
+                    // Update List for new doctor name
+                    defaultDoctorList.getD(doctorlistpos)->setDoctorName(newdoctorname);
+
+                    cout << "List updated successfully.\n";
+                    defaultDoctorList.print();
                 }
                 // Input invalid or error
                 catch (const exception&)
@@ -566,6 +590,32 @@ int main()
                 // Error handling
                 try
                 {
+                    // Print out all Doctor's Name, IC and Medical Record
+                    defaultDoctorList.print();
+
+                    // Get Doctor's index on the list
+                    cout << "\nPlease Enter Doctor's index in list: ";
+                    cin >> doctorlistpos;
+
+                    // Get new Patient's IC in the list
+                    cout << "\nPlease Enter new Patient's IC in list: ";
+                    cin >> newassignedpatientic;
+
+                    // Search exisitng Patient and put into newassignedpatient variable
+                    newassignedpatient = defaultList.returnsearch(newassignedpatientic);
+
+                    if (defaultList.getLength() != 0)
+                    {
+                        // Update List for new assigned patient
+                        defaultDoctorList.getD(doctorlistpos)->setassignedpatient(newassignedpatient);
+
+                        cout << "\nList updated successfully.\n";
+                        defaultDoctorList.print();
+                    }
+                    else
+                    {
+                        continue;
+                    }
 
                 }
                 // Input invalid or error

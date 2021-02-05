@@ -28,6 +28,6 @@ Patients Doctors::getassignedpatient()
 string Doctors::printDoctor()
 {
 	string print;
-	cout << "Doctor's Name: " << getDoctorName() << "\nAssigned Patient Name: " << getassignedpatient().getName() << "\nAssigned Patient IC: " << getassignedpatient().getIC();
+	cout << "\tDoctor's Name: " << getDoctorName() << "\n\tAssigned Patient Name: " << getassignedpatient().getName() << "\n\tAssigned Patient IC: " << getassignedpatient().getIC();
 	return print;
 }
