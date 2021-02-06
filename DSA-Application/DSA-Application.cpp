@@ -508,13 +508,24 @@ int main()
                    
                     // Search exisitng Patient and print out if success
                     defaultList.returnsearch(doctorassignedpatientic,doctorpatienttemp);
-                   
-                    // Create new Doctor
-                    Doctors newDoctor = Doctors(doctorname, doctorpatienttemp);
+                    bool success = doctorpatienttemp.getIC().length() != 0;
+                    if (success)
+                    {
+                        // Create new Doctor
+                        Doctors newDoctor = Doctors(doctorname, doctorpatienttemp);
 
-                    // Add new Patient into list
-                    defaultDoctorList.add(newDoctor);
+                        // Add new Patient into list
+                        defaultDoctorList.add(newDoctor);
+
+                        cout << "\nPatient Successfully added\n";
+                    }
+                    else {
+                        cout << "\nNo patient found.\n";
+                    }
+                    
                    
+                       
+                    
                 }
                 catch (const exception&)
                 {
@@ -633,13 +644,17 @@ int main()
                         // Search exisitng Patient and put into newassignedpatient variable
                         
                         defaultList.returnsearch(newassignedpatientic,newassignedpatient);
-                        
-                        // Update List for new assigned patient
-                        defaultDoctorList.getD(doctorlistpos)->setassignedpatient(newassignedpatient);
+                        bool success = newassignedpatient.getIC().length() != 0;
+                        if (success) {
+                            // Update List for new assigned patient
+                            defaultDoctorList.getD(doctorlistpos)->setassignedpatient(newassignedpatient);
 
-                        cout << "\nList updated successfully.\n";
-                        defaultDoctorList.print();
-                        
+                            cout << "\nList updated successfully.\n";
+                            defaultDoctorList.print();
+                        }
+                        else {
+                            cout<< "\nNo Patient found.\n";
+                        }
                     }
                     else
                     {
