@@ -177,19 +177,6 @@ void DoctorAssignList::print()
 		cout << "The list is empty." << endl;
 }
 
-//-------------------------------------------------------------------------------- Auto Sort Function --------------------------------------------------------------------------------
-
-//pseudocode
-//SORT(head)
-//if (head->next == null)
-//return
-//tempNode = head->next
-//SORT(tempNode)
-//if (tempNode->value < head->value)
-//	SWAP(head, tempNode)
-//	SORT(head)
-//return
-
 
 
 

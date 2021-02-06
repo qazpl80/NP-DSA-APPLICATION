@@ -38,15 +38,21 @@ bool Queue::enqueue(const ItemType item,  static int& queuenumber)
 
 bool Queue::dequeue()
 {
+	
 	bool success = !isEmpty();
 	if (success)					// queue is not empty -> remove front
 	{
 		Node* temp = frontNode;		// to be returned to the system
-		if (frontNode == backNode)  // only one node in the queue
+		if (backNode == frontNode)  // only one node in the queue
 		{
+			
+			
 			frontNode = NULL;
 			backNode = NULL;
+			
+			
 		}
+
 		else
 			frontNode = frontNode->next;
 
@@ -55,7 +61,7 @@ bool Queue::dequeue()
 		delete temp;
 		temp = NULL;
 	}
-
+	
 	return success;
 }
 
@@ -67,6 +73,10 @@ bool Queue::dequeue(ItemType& item)
 		item = frontNode->item;		// retrieve front item
 		dequeue();					// delete front
 	}
+	
+
+		
+
 
 	return success;
 }
@@ -104,15 +114,16 @@ void Queue::getSecondLargest(ItemType& item)
 }
 bool Queue::isEmpty() { return frontNode == NULL; }
 
-void Queue::resetProgram() //testing
+void Queue::resetQueueNum() 
 {
-	// Clear all exisiting queue and reset number count
+	// Reset number count
 	
 	
-	delete(frontNode);
-	delete(backNode);
-	frontNode = NULL;
-	backNode = NULL;
+	
+	frontNode->next = NULL;
+	backNode->next  = NULL;
+	
+	
 	
 }
 

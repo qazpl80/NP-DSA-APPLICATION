@@ -132,7 +132,7 @@ void MedicalRecordList::search(string IC)   // Search Patient using Patient's ID
 }
 
 // search for patient in the list using patient's IC
-Patients MedicalRecordList::returnsearch(string IC)   // Search Patient using Patient's ID
+void MedicalRecordList::returnsearch(string IC, ItemType& ritem)   // Search Patient using Patient's ID
 {
     for (int i = 0; i < size; i++)
     {
@@ -140,11 +140,13 @@ Patients MedicalRecordList::returnsearch(string IC)   // Search Patient using Pa
         bool success = item.getIC() == IC;  // Success if Patient IC matched with provided IC
         if (success)
         {
-            return item;	// Return Patient's Medical Record
+            ritem = item;	// Return Patient's Medical Record
             break;                                                              // End Loop
         }
         else if ((item.getIC() != IC) && size - 1 == i)
         {
+
+            
             break;
         }
         else

@@ -64,7 +64,7 @@ public:
 
     void search(string IC);
 
-    Patients returnsearch(string IC);
+    void returnsearch(string IC ,ItemType& ritem);
 
     void selectionSort( int n);
 

@@ -394,7 +394,7 @@ int main()
                 if (PatientQueue.isEmpty() != true && PatientQueue.getLength() >= 2)
                 {
                     cout << "\nCurrent Number: " << PatientQueue.displayfrontQueueNum() << "\tThe current Patient at the front of the queue is " << QueueFrontPatientName << "\n";
-                    cout << "\nNext Number: " << PatientQueue.displayfrontQueueNum() + 1 << "\tThe next Patient is " << QueueSecondPatient.getName() << "\n";
+                    cout << "\nNext Number: " << PatientQueue.displayfrontQueueNum()+1  << "\tThe next Patient is " << QueueSecondPatient.getName() << "\n";
 
                 }
                 else if (PatientQueue.isEmpty() != true && PatientQueue.getLength() == 1)
@@ -402,7 +402,7 @@ int main()
                     cout << "\nCurrent Number: " << PatientQueue.displayfrontQueueNum() << "\tThe current Patient at the front of the queue is " << QueueFrontPatientName << "\n";
                     cout << "\nNo one else is in queue.\n";
                 }
-
+              
                 else
                 {
                     cout << "\nNo Patient is in queue." << "\n";
@@ -505,19 +505,16 @@ int main()
                     cout << "\nPlease Enter Doctor's Assigned Patient IC: ";
                     cin >> doctorassignedpatientic;
 
-                    if (doctorassignedpatientic == defaultList.returnsearch(doctorassignedpatientic).getIC()){
+                   
                     // Search exisitng Patient and print out if success
-                    doctorpatienttemp = defaultList.returnsearch(doctorassignedpatientic);
-
+                    defaultList.returnsearch(doctorassignedpatientic,doctorpatienttemp);
+                   
                     // Create new Doctor
                     Doctors newDoctor = Doctors(doctorname, doctorpatienttemp);
 
                     // Add new Patient into list
                     defaultDoctorList.add(newDoctor);
-                    }
-                    else {
-                        cout << "\nPlease Enter Doctor's Assigned Patient IC: ";
-                    }
+                   
                 }
                 catch (const exception&)
                 {
@@ -623,7 +620,7 @@ int main()
                     // Print out all Doctor's Name, IC and Medical Record
                     defaultDoctorList.print();
 
-                    if (defaultList.isEmpty() != 1 && defaultDoctorList.isEmpty() != 1)
+                    if (defaultList.isEmpty() != true && defaultDoctorList.isEmpty() != true)
                     {
                         // Get Doctor's index on the list
                         cout << "\nPlease Enter Doctor's index in list: ";
@@ -634,14 +631,15 @@ int main()
                         cin >> newassignedpatientic;
 
                         // Search exisitng Patient and put into newassignedpatient variable
-                        newassignedpatient = defaultList.returnsearch(newassignedpatientic);
-
-
+                        
+                        defaultList.returnsearch(newassignedpatientic,newassignedpatient);
+                        
                         // Update List for new assigned patient
                         defaultDoctorList.getD(doctorlistpos)->setassignedpatient(newassignedpatient);
 
                         cout << "\nList updated successfully.\n";
                         defaultDoctorList.print();
+                        
                     }
                     else
                     {
@@ -662,10 +660,68 @@ int main()
         }
          else if (option == "10")
          {
-            cout << "\nOption 10 - Reset Program\n------------------------------\n";
-            PatientQueue.resetProgram();
+            string patientqueueic;
+            Patients patientqueuetemp;
+            cout << "\nOption 10 - Reset QueueNumber\n------------------------------\n";
+            PatientQueue.resetQueueNum();
             queuenumber = 1;
-            continue;
+            cout << "Please add new patient into queue: ";
+            cin >> patientqueueic;
+            try
+            {
+                // For-Loop to check the whole Patient List
+                for (int i = 0; i < defaultList.getLength(); i++)
+                {
+                    // Enqueue Patient if IC is found in the List
+                    bool success = patientqueueic == defaultList.get(i).getIC();
+                    if (success)
+                    {
+                        if (PatientQueue.getLength() == 0)
+                        {
+                            patientqueuetemp = defaultList.get(i);
+
+                            // Enqueue Patient
+                            PatientQueue.enqueue(patientqueuetemp, queuenumber);
+                            // Next Patient set increased queue number
+                            queuenumber++;
+
+                            cout << "\nPatient successfully added into the queue.\n";
+                            break;
+                        }
+                        else
+                        {
+                            patientqueuetemp = defaultList.get(i);
+
+                            // Enqueue Patient
+                            PatientQueue.enqueue(patientqueuetemp, queuenumber);
+
+                            // Next Patient set increased queue number
+                            queuenumber++;
+
+                            cout << "\nPatient successfully added into the queue.\n";
+                            break;
+                        }
+
+                    }
+                    else if (!success)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        cout << "\nPatient missing or does not exist in list.\n";
+                        break;
+                    }
+                }
+            }
+            catch (const std::exception&)
+            {
+                cout << "\nError: Please contact the developer to resolve the error.\n";
+            }
+            PatientQueue.dequeue();
+        
+            
+
 
          }
 

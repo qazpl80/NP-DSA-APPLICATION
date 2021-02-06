@@ -43,7 +43,7 @@ public:
 	// display the items in the queue
 	// void print();
 
-	void resetProgram();
+	void resetQueueNum();
 
 	int displayfrontQueueNum();
 	void getSecondLargest(ItemType& item);
