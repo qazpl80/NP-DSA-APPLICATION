@@ -16,7 +16,7 @@ void printMenu()
     cout << "\n\n---------- Clinic Counter Program ----------";
     cout << "\nOption 1: Add new patient\nOption 2: Modify Patient's details existing in the List\nOption 3: Show all Patient Details\nOption 4: Retieve Patient's Medical Record by Patient's IC";
     cout << "\nOption 5: Add existing Patient to queue\nOption 6: Display front of queue\nOption 7: Dequeue front patient.\nOption 8: Sort Patient List";
-    cout << "\nOption 9: Doctor's Assign Details\nOption 0: Exit Program";
+    cout << "\nOption 9: Doctor's Assign Details\nOption 10: Reset Program\nOption 0: Exit Program";
     cout << "\nPlease select an option from the menu provided: ";
 }
 
@@ -338,6 +338,8 @@ int main()
 
                             // Enqueue Patient
                             PatientQueue.enqueue(patientqueuetemp, queuenumber);
+                            // Next Patient set increased queue number
+                            queuenumber++;
 
                             cout << "\nPatient successfully added into the queue.\n";
                             break;
@@ -380,19 +382,19 @@ int main()
             // Print out selected option
             cout << "\nOption 6 - Display front of queue\n------------------------------\n";
             string QueueFrontPatientName;
-            string NextPatientName;
+            
             // Error Handling
             try
             {
                 PatientQueue.getFront(QueueFrontPatient);
                 QueueFrontPatientName = QueueFrontPatient.getName();
                 PatientQueue.getSecondLargest(QueueSecondPatient);
-                NextPatientName = QueueFrontPatient.getName();
+               
 
                 if (PatientQueue.isEmpty() != true && PatientQueue.getLength() >= 2)
                 {
                     cout << "\nCurrent Number: " << PatientQueue.displayfrontQueueNum() << "\tThe current Patient at the front of the queue is " << QueueFrontPatientName << "\n";
-                    cout << "\nNext Number: " << PatientQueue.displayfrontQueueNum() + 1 << "\tThe next Patient is " << NextPatientName << "\n";
+                    cout << "\nNext Number: " << PatientQueue.displayfrontQueueNum() + 1 << "\tThe next Patient is " << QueueSecondPatient.getName() << "\n";
 
                 }
                 else if (PatientQueue.isEmpty() != true && PatientQueue.getLength() == 1)
@@ -403,7 +405,7 @@ int main()
 
                 else
                 {
-                    cout << "\nNo Patient is in queue." << QueueFrontPatientName << "\n";
+                    cout << "\nNo Patient is in queue." << "\n";
                 }
 
             }
@@ -503,6 +505,7 @@ int main()
                     cout << "\nPlease Enter Doctor's Assigned Patient IC: ";
                     cin >> doctorassignedpatientic;
 
+                    if (doctorassignedpatientic == defaultList.returnsearch(doctorassignedpatientic).getIC()){
                     // Search exisitng Patient and print out if success
                     doctorpatienttemp = defaultList.returnsearch(doctorassignedpatientic);
 
@@ -511,6 +514,10 @@ int main()
 
                     // Add new Patient into list
                     defaultDoctorList.add(newDoctor);
+                    }
+                    else {
+                        cout << "\nPlease Enter Doctor's Assigned Patient IC: ";
+                    }
                 }
                 catch (const exception&)
                 {
@@ -653,6 +660,15 @@ int main()
                 cout << "\nInvalid Input, please try again\n";
             }
         }
+         else if (option == "10")
+         {
+            cout << "\nOption 10 - Reset Program\n------------------------------\n";
+            PatientQueue.resetProgram();
+            queuenumber = 1;
+            continue;
+
+         }
+
 
         // Option 0 -----------------------------------------------------------------------------------------------------------------------------------------------
         else if (option == "0")
@@ -660,7 +676,7 @@ int main()
             cout << "\n---------- End of Program ----------\nProgram developed by Yuan Ming and Gladys\n";
             break;
         }
-
+        
         // Other Option -----------------------------------------------------------------------------------------------------------------------------------------------
         else
         {

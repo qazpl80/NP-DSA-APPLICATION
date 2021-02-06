@@ -107,8 +107,13 @@ bool Queue::isEmpty() { return frontNode == NULL; }
 void Queue::resetProgram() //testing
 {
 	// Clear all exisiting queue and reset number count
-	frontNode == NULL;
-	backNode == NULL;
+	
+	
+	delete(frontNode);
+	delete(backNode);
+	frontNode = NULL;
+	backNode = NULL;
+	
 }
 
 int Queue::displayfrontQueueNum()
