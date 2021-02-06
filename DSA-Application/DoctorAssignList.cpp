@@ -159,12 +159,12 @@ int DoctorAssignList::getLength() { return size; }
 //------------------- Other useful functions -----------------
 void DoctorAssignList::print()
 {
-	sorting();
 	Node* temp = firstNode;
 	int i = 0;
 
 	if (temp != NULL)		// list is NOT empty
 	{
+		sorting();
 		while (temp != NULL)
 		{
 			cout << i << ") ";

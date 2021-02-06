@@ -487,7 +487,7 @@ int main()
             // Print out selected option
 
             string doctoroption;            // Initialize option for doctors
-            cout << "\nOption 1: Add New Doctor Details\nOption 2: Remove an Existing Doctor Detais\nOption 3: Display All Doctor Details\nOption 4: Modify Doctor's Name\nOption 5: Modify Doctor's Assigned Patient\nPlease select an option: ";
+            cout << "\nOption 1: Add New Doctor Details\nOption 2: Remove an Existing Doctor Details\nOption 3: Display All Doctor Details\nOption 4: Modify Doctor's Name\nOption 5: Modify Doctor's Assigned Patient\nPlease select an option: ";
             cin >> doctoroption;            // Get user's option
 
             if (doctoroption == "1")
