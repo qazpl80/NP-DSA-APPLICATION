@@ -120,17 +120,26 @@ int main()
                         cout << "\nPlease Enter Patient's index in list: ";
                         cin >> patientlistpos;
 
-                        // initialize new Patient's name
-                        string newpatientname;
+                        if (defaultList.get(patientlistpos).getName().length() != 0)
+                        {
 
-                        // Get new Patient's IC for the list
-                        cout << "\nPlease Enter new Patient's Name in list: ";
-                        cin.ignore();
-                        getline(cin, newpatientname);
-                        defaultList.getP(patientlistpos)->setName(newpatientname);
+                            // initialize new Patient's name
+                            string newpatientname;
 
-                        cout << "List updated successfully.\n";
-                        defaultList.print();
+                            // Get new Patient's IC for the list
+                            cout << "\nPlease Enter new Patient's Name in list: ";
+                            cin.ignore();
+                            getline(cin, newpatientname);
+                            defaultList.getP(patientlistpos)->setName(newpatientname);
+
+                            cout << "List updated successfully.\n";
+                            defaultList.print();
+                        }
+                        else
+                        {
+                            cout << "Patient does not exist.\n";
+                        }
+                        
                     }
                     else
                     {
@@ -157,17 +166,24 @@ int main()
                         cout << "\nPlease Enter Patient's index in list: ";
                         cin >> patientlistpos;
 
-                        //initialize new Patient's IC
-                        string newpatientic;
+                        if (defaultList.get(patientlistpos).getIC().length() != 0)
+                        {
+                            //initialize new Patient's IC
+                            string newpatientic;
 
-                        // Get new Patient's IC for the list
-                        cout << "\nPlease Enter new Patient's IC in list: ";
-                        cin >> newpatientic;
+                            // Get new Patient's IC for the list
+                            cout << "\nPlease Enter new Patient's IC in list: ";
+                            cin >> newpatientic;
+                            defaultList.getP(patientlistpos)->setIC(newpatientic);
 
-                        defaultList.getP(patientlistpos)->setIC(newpatientic);
-
-                        cout << "\nList updated successfully.\n";
-                        defaultList.print();
+                            cout << "\nList updated successfully.\n";
+                            defaultList.print();
+                        }
+                        else
+                        {
+                            cout << "Patient does not exist.\n";
+                        }
+                        
                     }
                     else
                     {
@@ -193,8 +209,7 @@ int main()
                     cout << "\nPlease Enter Patient's index in list: ";
                     cin >> patientlistpos;
 
-                    // Check if list if empty
-                    if (defaultList.isEmpty() != 1)
+                    if (defaultList.get(patientlistpos).getIC().length() != 0)
                     {
                         //initialize new Patient's Medical Record
                         string newpatientmedicalrecord;
@@ -212,7 +227,7 @@ int main()
                     }
                     else
                     {
-                        cout << "\nList is currently empty and/or no patient can be found.\n";
+                        cout << "Patient does not exist.\n";
                     }
                 }
 
@@ -237,12 +252,18 @@ int main()
                         // Get Patient's index on the list
                         cout << "\nPlease Enter Patient's index in list: ";
                         cin >> patientlistpos;
+                        if (defaultList.get(patientlistpos).getIC().length() != 0)
+                        {
+                            // Remove exisitng patient from list
+                            defaultList.remove(patientlistpos);
 
-                        // Remove exisitng patient from list
-                        defaultList.remove(patientlistpos);
-
-                        cout << "\nList updated successfully.\n";
-                        defaultList.print();
+                            cout << "\nList updated successfully.\n";
+                            defaultList.print();
+                        }
+                        else
+                        {
+                            cout << "Patient does not exist.\n";
+                        }
                     }
                     else
                     {
@@ -538,16 +559,17 @@ int main()
             {
                 // Print out selected option
                 cout << "\nOption 2 - Remove an existing doctor\n------------------------------\n";
-                int doctorlistindex;
                 try
                 {
-                    if (defaultDoctorList.getLength() != 0)
+                    int doctorlistindex;
+
+                    // Print out all Doctor's Details
+                    defaultDoctorList.print();
+                    // Get Doctor's index on the list
+                    cout << "\nPlease Enter Doctor index in list: ";
+                    cin >> doctorlistindex;
+                    if (defaultDoctorList.getLength() != 0 && defaultDoctorList.get(doctorlistindex).getassignedpatient().getIC().length() != 0)
                     {
-                        // Print out all Doctor's Details
-                        defaultDoctorList.print();
-                        // Get Doctor's index on the list
-                        cout << "\nPlease Enter Doctor index in list: ";
-                        cin >> doctorlistindex;
 
                         // Remove exisitng patient from list
                         defaultDoctorList.remove(doctorlistindex);
@@ -600,16 +622,24 @@ int main()
                         cout << "\nPlease Enter Doctor's index in list: ";
                         cin >> doctorlistpos;
 
-                        // Get Doctor's index on the list
-                        cout << "\nPlease Enter new Doctor's Name: ";
-                        cin.ignore();
-                        getline(cin, newdoctorname);
+                        if (defaultDoctorList.getLength() != 0 && defaultDoctorList.get(doctorlistpos).getassignedpatient().getIC().length() != 0)
+                        {
 
-                        // Update List for new doctor name
-                        defaultDoctorList.getD(doctorlistpos)->setDoctorName(newdoctorname);
+                            // Get Doctor's index on the list
+                            cout << "\nPlease Enter new Doctor's Name: ";
+                            cin.ignore();
+                            getline(cin, newdoctorname);
 
-                        cout << "\nList updated successfully.\n";
-                        defaultDoctorList.print();
+                            // Update List for new doctor name
+                            defaultDoctorList.getD(doctorlistpos)->setDoctorName(newdoctorname);
+
+                            cout << "\nList updated successfully.\n";
+                            defaultDoctorList.print();
+                        }
+                        else
+                        {
+                            cout << "\nList is currently empty and/or no doctor can be found.\n";
+                        }
                     }
                     else
                     {
@@ -639,23 +669,32 @@ int main()
                         cout << "\nPlease Enter Doctor's index in list: ";
                         cin >> doctorlistpos;
 
-                        // Get new Patient's IC in the list
-                        cout << "\nPlease Enter new Patient's IC in list: ";
-                        cin >> newassignedpatientic;
+                        if (defaultDoctorList.getLength() != 0 && defaultDoctorList.get(doctorlistpos).getassignedpatient().getIC().length() != 0)
+                        {
+                            // Get new Patient's IC in the list
+                            cout << "\nPlease Enter new Patient's IC in list: ";
+                            cin >> newassignedpatientic;
 
-                        // Search exisitng Patient and put into newassignedpatient variable
+                            // Search exisitng Patient and put into newassignedpatient variable
                         
-                        defaultList.returnsearch(newassignedpatientic,newassignedpatient);
-                        bool success = newassignedpatient.getIC().length() != 0;
-                        if (success) {
-                            // Update List for new assigned patient
-                            defaultDoctorList.getD(doctorlistpos)->setassignedpatient(newassignedpatient);
+                            defaultList.returnsearch(newassignedpatientic,newassignedpatient);
+                            bool success = newassignedpatient.getIC().length() != 0;
+                            if (success) 
+                            {
+                                // Update List for new assigned patient
+                                defaultDoctorList.getD(doctorlistpos)->setassignedpatient(newassignedpatient);
 
-                            cout << "\nList updated successfully.\n";
-                            defaultDoctorList.print();
+                                cout << "\nList updated successfully.\n";
+                                defaultDoctorList.print();
+                            }
+                            else 
+                            {
+                                cout << "\nNo Patient found.\n";
+                            }
                         }
-                        else {
-                            cout<< "\nNo Patient found.\n";
+                        else
+                        {
+                            cout << "\nDoctor or Patient List is currently empty and/or no doctor/patient can be found.\n";
                         }
                     }
                     else
@@ -675,8 +714,8 @@ int main()
                 cout << "\nInvalid Input, please try again\n";
             }
         }
-         else if (option == "10")
-         {
+        else if (option == "10")
+        {
             string patientqueueic;
             Patients patientqueuetemp;
             cout << "\nOption 10 - Reset QueueNumber\n------------------------------\n";
@@ -736,12 +775,7 @@ int main()
                 cout << "\nError: Please contact the developer to resolve the error.\n";
             }
             PatientQueue.dequeue();
-        
-            
-
-
-         }
-
+        }
 
         // Option 0 -----------------------------------------------------------------------------------------------------------------------------------------------
         else if (option == "0")
