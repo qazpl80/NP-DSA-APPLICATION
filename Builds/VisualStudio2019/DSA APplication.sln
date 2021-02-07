@@ -1,0 +1,20 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2019
+
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DSA APplication - App", "DSA APplication_App.vcxproj", "{026C5BCA-F649-05BB-CC1D-3AE47F3C7960}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{026C5BCA-F649-05BB-CC1D-3AE47F3C7960}.Debug|x64.ActiveCfg = Debug|x64
+		{026C5BCA-F649-05BB-CC1D-3AE47F3C7960}.Debug|x64.Build.0 = Debug|x64
+		{026C5BCA-F649-05BB-CC1D-3AE47F3C7960}.Release|x64.ActiveCfg = Release|x64
+		{026C5BCA-F649-05BB-CC1D-3AE47F3C7960}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
