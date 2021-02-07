@@ -1,4 +1,15 @@
 // Patients.cpp - Implementation of Patients class
+//
+// Class: T03
+// Team Group: Team F
+//
+// |Name                       |Student Number |
+//-----------------------------|---------------|
+// |Tan Yuan Ming	           |(S10198319C)   |
+// |Gladys Chua Ling Hui	   |(S10196678G)   |
+//
+//
+// Doctor Class Source File: Containing Doctor Name and Patient (retrieved from the array list)
 #include "Doctors.h"
 
 Doctors::Doctors() {}

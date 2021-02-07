@@ -1,5 +1,15 @@
 // DSA-Application.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+// Class: T03
+// Team Group: Team F
+//
+// |Name                       |Student Number |
+//-----------------------------|---------------|
+// |Tan Yuan Ming	           |(S10198319C)   |
+// |Gladys Chua Ling Hui	   |(S10196678G)   |
+//
+//
+// Main Program with Command-Line Interface and Error Handling
 
 using namespace std;
 #include "MedicalRecordList.h"
@@ -16,7 +26,7 @@ void printMenu()
     cout << "\n\n---------- Clinic Counter Program ----------";
     cout << "\nOption 1: Add new patient\nOption 2: Modify Patient's details existing in the List\nOption 3: Show all Patient Details\nOption 4: Retieve Patient's Medical Record by Patient's IC";
     cout << "\nOption 5: Add existing Patient to queue\nOption 6: Display front of queue\nOption 7: Dequeue front patient.\nOption 8: Sort Patient List";
-    cout << "\nOption 9: Doctor's Assign Details\nOption 10: Reset Program\nOption 0: Exit Program";
+    cout << "\nOption 9: Doctor's Assign Details\nOption 10: Reset Queue Number\nOption 0: Exit Program";
     cout << "\nPlease select an option from the menu provided: ";
 }
 
@@ -57,6 +67,7 @@ int main()
                     cin.ignore();
                     getline(cin, patientname);
 
+                    // If user enter "0", exit create new patient option
                     if (patientname == "0")
                         break;
 
@@ -64,6 +75,7 @@ int main()
                     cout << "\nPlease Enter Patient's IC: ";
                     cin >> patientic;
 
+                    // If user enter "0", exit create new patient option
                     if (patientic == "0")
                         break;
 
@@ -72,6 +84,7 @@ int main()
                     cin.ignore();
                     getline(cin, patientmr);
 
+                    // If user enter "0", exit create new patient option
                     if (patientmr == "0")
                         break;
 
@@ -111,6 +124,7 @@ int main()
                 // Error Handling
                 try
                 {
+                    // If list is not empty, continue
                     if (defaultList.isEmpty() != 1)
                     {
                         // Print out all Patient's Name, IC and Medical Record
@@ -120,6 +134,7 @@ int main()
                         cout << "\nPlease Enter Patient's index in list: ";
                         cin >> patientlistpos;
 
+                        // If patient's index does not exist in list, print out "Patient does not exist."
                         if (defaultList.get(patientlistpos).getName().length() != 0)
                         {
 
@@ -157,6 +172,7 @@ int main()
                 cout << "\nOption 2 - Modify Patient's IC\n------------------------------\n";
                 try
                 {
+                    // If list is not empty, continue
                     if (defaultList.isEmpty() != 1)
                     {
                         // Print out all Patient's Name, IC and Medical Record
@@ -166,6 +182,7 @@ int main()
                         cout << "\nPlease Enter Patient's index in list: ";
                         cin >> patientlistpos;
 
+                        // If patient's index does not exist in list, print out "Patient does not exist."
                         if (defaultList.get(patientlistpos).getIC().length() != 0)
                         {
                             //initialize new Patient's IC
@@ -209,6 +226,7 @@ int main()
                     cout << "\nPlease Enter Patient's index in list: ";
                     cin >> patientlistpos;
 
+                    // If patient's index does not exist in list, print out "Patient does not exist."
                     if (defaultList.get(patientlistpos).getIC().length() != 0)
                     {
                         //initialize new Patient's Medical Record
@@ -245,13 +263,17 @@ int main()
                 // Error handling
                 try
                 {
+                    // If list is not empty, continue
                     if (defaultList.isEmpty() != 1)
                     {
                         // Print out all Patient's Name, IC and Medical Record
                         defaultList.print();
+
                         // Get Patient's index on the list
                         cout << "\nPlease Enter Patient's index in list: ";
                         cin >> patientlistpos;
+
+                        // If patient's index does not exist in list, print out "Patient does not exist."
                         if (defaultList.get(patientlistpos).getIC().length() != 0)
                         {
                             // Remove exisitng patient from list
@@ -291,6 +313,7 @@ int main()
             // Error handling
             try
             {
+                // If list is not empty, continue
                 if (defaultList.isEmpty() != 1)
                 {
                     // Print out all Patient's Name, IC and Medical Record
@@ -353,6 +376,8 @@ int main()
                 {
                     // Enqueue Patient if IC is found in the List
                     bool success = patientqueueic == defaultList.get(i).getIC();
+
+                    // If patient exist check
                     if (success)
                     {
                         if (PatientQueue.getLength() == 0)
@@ -369,6 +394,7 @@ int main()
                         }
                         else
                         {
+                            // Get patient in list and add into queue
                             patientqueuetemp = defaultList.get(i);
 
                             // Enqueue Patient
@@ -382,10 +408,12 @@ int main()
                         }
 
                     }
+                    // If patient does not exist but list is not finished check
                     else if (!success)
                     {
                         continue;
                     }
+                    // If patient does not exist check
                     else
                     {
                         cout << "\nPatient missing or does not exist in list.\n";
@@ -404,28 +432,33 @@ int main()
         {
             // Print out selected option
             cout << "\nOption 6 - Display front of queue\n------------------------------\n";
-            string QueueFrontPatientName;
+            string QueueFrontPatientName;       // Initialize QueueFrontPatientName for storing front of queue's patient's name
             
             // Error Handling
             try
             {
+                // Get front of queue patient and put into QueueFrontPatient string
                 PatientQueue.getFront(QueueFrontPatient);
+
+                // Get front of queue patient name and put into QueueFrontPatient string
                 QueueFrontPatientName = QueueFrontPatient.getName();
+
+                // Get second of queue patient name and put into QueueFrontPatient string
                 PatientQueue.getSecondLargest(QueueSecondPatient);
                
-
+                // Check if list is not empty and have at least 2 patient in queue
                 if (PatientQueue.isEmpty() != true && PatientQueue.getLength() >= 2)
                 {
                     cout << "\nCurrent Number: " << PatientQueue.displayfrontQueueNum() << "\tThe current Patient at the front of the queue is " << QueueFrontPatientName << "\n";
                     cout << "\nNext Number: " << PatientQueue.displayfrontQueueNum()+1  << "\tThe next Patient is " << QueueSecondPatient.getName() << "\n";
 
                 }
+                // Check if list is not empty and have at least 1 patient in queue
                 else if (PatientQueue.isEmpty() != true && PatientQueue.getLength() == 1)
                 {
                     cout << "\nCurrent Number: " << PatientQueue.displayfrontQueueNum() << "\tThe current Patient at the front of the queue is " << QueueFrontPatientName << "\n";
                     cout << "\nNo one else is in queue.\n";
                 }
-              
                 else
                 {
                     cout << "\nNo Patient is in queue." << "\n";
@@ -441,7 +474,10 @@ int main()
         // Option 7 -----------------------------------------------------------------------------------------------------------------------------------------------
         else if (option == "7")
         {
+            // Print out selected option
             cout << "\nOption 7 - Dequeue front patient\n------------------------------\n";
+
+            // If patient queue's length is not equals to 1
             if (PatientQueue.getLength() != 1)
             {
                 PatientQueue.dequeue(QueueFrontPatient);
@@ -451,41 +487,15 @@ int main()
             {
                 cout << "\nNo Patient existing in queue.\n";
             }
-            //// Print out selected option
-            //cout << "\nOption 7 - Display front and dequeue\n------------------------------\n";
-            //// If not last patient, print Queue number and display patient name while dequeue
-            //if (PatientQueue.getLength() != 1)
-            //{
-            //    PatientQueue.dequeue(QueueFrontPatient);
-            //    string FrontPatientName = QueueFrontPatient.getName();
-            //    cout << "\nCurrent Number: " << PatientQueue.displayfrontQueueNum() << "\t Patient: " << FrontPatientName;
-            //}
-
-            //// If last patient, print Queue number plus 1 and display patient name while dequeue
-            //else if (PatientQueue.getLength() == 1)
-            //{
-            //    int Lastqueue = PatientQueue.displayfrontQueueNum() + 1;
-            //    PatientQueue.dequeue(QueueFrontPatient);
-            //    string FrontPatientName = QueueFrontPatient.getName();
-            //    cout << "\nCurrent Number: " << Lastqueue << "\t Patient: " << FrontPatientName;
-            //}
-            //else if (PatientQueue.getLength() == 0)
-            //{
-            //    cout << "No Patient existing in queue. If you think this is an error, please contact the program's developer.\n";
-            //}
-            //// else display no patient in queue
-            //else 
-            //{
-            //    cout << "No Patient existing in queue. If you think this is an error, please contact the program's developer.\n";
-            //}
-
         }
 
         // Option 8 -----------------------------------------------------------------------------------------------------------------------------------------------
         else if (option == "8")
         {
+            // Print out selected option
             cout << "\nOption 8 - Sort Patient List\n------------------------------\n";
 
+            // Sort List
             int sizeoflist = defaultList.getLength();
             defaultList.selectionSort(sizeoflist);
 
@@ -542,13 +552,10 @@ int main()
 
                         cout << "\nPatient Successfully added\n";
                     }
-                    else {
+                    else 
+                    {
                         cout << "\nNo patient found.\n";
                     }
-                    
-                   
-                       
-                    
                 }
                 catch (const exception&)
                 {
@@ -716,11 +723,17 @@ int main()
         }
         else if (option == "10")
         {
-            string patientqueueic;
-            Patients patientqueuetemp;
-            cout << "\nOption 10 - Reset QueueNumber\n------------------------------\n";
+            string patientqueueic;          // Initialize Patient's IC to find from list to add to queue
+            Patients patientqueuetemp;      // Initialize Patient to add to queue
+
+            // Print out selected option
+            cout << "\nOption 10 - Reset Queue Number\n------------------------------\n";
+
+            // Reset Queue Number and Queue
             PatientQueue.resetQueueNum();
             queuenumber = 1;
+
+            // Get Patient's IC to search in the queue
             cout << "Please add new patient into queue: ";
             cin >> patientqueueic;
             try

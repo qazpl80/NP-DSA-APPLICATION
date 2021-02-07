@@ -1,5 +1,16 @@
 #pragma once
 // MedicalRecordList.h - - Specification of List ADT
+//
+// Class: T03
+// Team Group: Team F
+//
+// |Name                       |Student Number |
+//-----------------------------|---------------|
+// |Tan Yuan Ming	           |(S10198319C)   |
+// |Gladys Chua Ling Hui	   |(S10196678G)   |
+//
+//
+// Patient Array List Header: Containing Patient's Class and Array-List Code and functions
 #include <string>
 #include <iostream>
 using namespace std;

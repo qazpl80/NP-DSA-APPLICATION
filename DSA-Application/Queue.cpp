@@ -1,5 +1,15 @@
 // Queue.cpp - Implementation of Queue ADT (Pointer-based)
-
+//
+// Class: T03
+// Team Group: Team F
+//
+// |Name                       |Student Number |
+//-----------------------------|---------------|
+// |Tan Yuan Ming	           |(S10198319C)   |
+// |Gladys Chua Ling Hui	   |(S10196678G)   |
+//
+//
+// Patient's Linked-List Queue Source File: Containing Patient's Class (retrieved from the array list) and Queue Linked-List Code and functions 
 #include "Queue.h"
 
 

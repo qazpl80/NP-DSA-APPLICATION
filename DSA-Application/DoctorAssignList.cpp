@@ -1,5 +1,16 @@
 // List.cpp - Implementation of List ADT using Pointers
-
+//
+// Class: T03
+// Team Group: Team F
+//
+// |Name                       |Student Number |
+//-----------------------------|---------------|
+// |Tan Yuan Ming	           |(S10198319C)   |
+// |Gladys Chua Ling Hui	   |(S10196678G)   |
+//
+//
+// Doctor Linked-List Source File: Containing Doctor's Class and Linked-List Code and functions
+//
 #include <cstddef>  // for NULL
 #include <new>      // for bad_alloc
 
@@ -19,13 +30,25 @@ void DoctorAssignList::sorting()
 	current = firstNode;
 	bcurrent = firstNode->next;
 
-	for (int i = size - 1; i >= 0; i--) {
+	// Run through the whole Linked-List
+	for (int i = size - 1; i >= 0; i--) 
+	{
+		// Assign firstnode to current
 		current = firstNode;
+		// Assign next node to bcurrent
 		bcurrent = firstNode->next;
-		for (int j = 0; j < size - 1; j++) {
-			if (current->item.getDoctorName() > bcurrent->item.getDoctorName()) {
+
+		// Check into each Node
+		for (int j = 0; j < size - 1; j++) 
+		{
+			// Compare size of current node and next node strings (using ASCII)
+			if (current->item.getDoctorName() > bcurrent->item.getDoctorName()) 
+			{
+				// swap the two node's item in the list
 				swap(current->item, bcurrent->item);
 			}
+
+			// Continue down the list
 			current = bcurrent;
 			bcurrent = bcurrent->next;
 		}
