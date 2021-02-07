@@ -19,3 +19,4 @@ The program might/might not require the following to be done before it can be la
 The file must be downloaded and unzipped if the file is zipped.</br>
 The program might contain a few bugs and glitches.</br>
 The program is using C++ Programming Language to run.</br>
+The program currently store 2 different solution project for Visual Studio. To switch between the solution, switch to view in folder mode to exit solution.</br>
