@@ -21,6 +21,7 @@ using namespace std;
 #include <iostream>
 #include "MedicalRecordList.h"
 
+
 void printMenu()
 {
     cout << "\n\n---------- Clinic Counter Program ----------";
