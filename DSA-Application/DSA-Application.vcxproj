@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="DoctorAssignList.h" />
     <ClInclude Include="Doctors.h" />
+    <ClInclude Include="Header.h" />
     <ClInclude Include="MedicalRecordList.h" />
     <ClInclude Include="Patients.h" />
     <ClInclude Include="Queue.h" />
