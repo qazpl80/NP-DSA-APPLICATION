@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DSA-Application", "DSA-Application.vcxproj", "{B89742B7-0738-40C0-9ABA-9E09C1345436}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DSA APplication_App", "..\..\DSA Application\Builds\VisualStudio2019\DSA APplication_App.vcxproj", "{026C5BCA-F649-05BB-CC1D-3AE47F3C7960}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -23,12 +21,6 @@ Global
 		{B89742B7-0738-40C0-9ABA-9E09C1345436}.Release|x64.Build.0 = Release|x64
 		{B89742B7-0738-40C0-9ABA-9E09C1345436}.Release|x86.ActiveCfg = Release|Win32
 		{B89742B7-0738-40C0-9ABA-9E09C1345436}.Release|x86.Build.0 = Release|Win32
-		{026C5BCA-F649-05BB-CC1D-3AE47F3C7960}.Debug|x64.ActiveCfg = Debug|x64
-		{026C5BCA-F649-05BB-CC1D-3AE47F3C7960}.Debug|x64.Build.0 = Debug|x64
-		{026C5BCA-F649-05BB-CC1D-3AE47F3C7960}.Debug|x86.ActiveCfg = Debug|x64
-		{026C5BCA-F649-05BB-CC1D-3AE47F3C7960}.Release|x64.ActiveCfg = Release|x64
-		{026C5BCA-F649-05BB-CC1D-3AE47F3C7960}.Release|x64.Build.0 = Release|x64
-		{026C5BCA-F649-05BB-CC1D-3AE47F3C7960}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
