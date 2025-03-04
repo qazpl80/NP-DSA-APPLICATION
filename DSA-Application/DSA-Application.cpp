@@ -5,8 +5,8 @@
 //
 // |Name                       |Student Number |
 //-----------------------------|---------------|
-// |Tan Yuan Ming	           |(S10198319C)   |
-// |Gladys Chua Ling Hui	   |(S10196678G)   |
+// |Tan Yuan Ming	           |(SXXXXXXXXC)   |
+// |Gladys Chua Ling Hui	   |(SXXXXXXXXG)   |
 //
 //
 // Main Program with Command-Line Interface and Error Handling
